@@ -34,7 +34,7 @@ async function handleEnquiryForm(request) {
 
         Real visitors never see this field.
     */
-    const honeypot = String(
+     honeypot = String(
         formData.get("_gotcha") || ""
     ).trim();
 
@@ -48,42 +48,42 @@ async function handleEnquiryForm(request) {
     /*
         Read details entered by the client.
     */
-    const name = String(
+     name = String(
         formData.get("name") || ""
     ).trim();
 
-    const organisation = String(
+     organisation = String(
         formData.get("organisation") || ""
     ).trim();
 
-    const environment = String(
+     environment = String(
         formData.get("environment") || ""
     ).trim();
 
-    const whatsapp = String(
+     whatsapp = String(
         formData.get("whatsapp") || ""
     ).trim();
 
-    const email = String(
+     email = String(
         formData.get("email") || ""
     ).trim();
 
-    const preferredDate = String(
+     preferredDate = String(
         formData.get("preferredDate") || ""
     ).trim();
 
-    const preferredTime = String(
+     preferredTime = String(
         formData.get("preferredTime") || ""
     ).trim();
 
-    const challenge = String(
+     challenge = String(
         formData.get("challenge") || ""
     ).trim();
 
     /*
         Automatic Malaysia submission date and time.
     */
-    const submittedAt = new Date().toLocaleString(
+     submittedAt = new Date().toLocaleString(
         "en-MY",
         {
             timeZone: "Asia/Kuala_Lumpur",
@@ -114,7 +114,7 @@ async function handleEnquiryForm(request) {
         return value.replace(
             /[&<>"']/g,
             function (character) {
-                const characters = {
+                 characters = {
                     "&": "&amp;",
                     "<": "&lt;",
                     ">": "&gt;",
@@ -127,11 +127,11 @@ async function handleEnquiryForm(request) {
         );
     }
 
-    const safeName = escapeHtml(name);
-    const safeOrganisation = escapeHtml(organisation);
-    const safeEnvironment = escapeHtml(environment);
-    const safeWhatsapp = escapeHtml(whatsapp);
-    const safeEmail = escapeHtml(email || "Not provided");
+     safeName = escapeHtml(name);
+     safeOrganisation = escapeHtml(organisation);
+     safeEnvironment = escapeHtml(environment);
+     safeWhatsapp = escapeHtml(whatsapp);
+     safeEmail = escapeHtml(email || "Not provided");
     const safePreferredDate = escapeHtml(
         preferredDate || "Not provided"
     );
@@ -149,7 +149,7 @@ async function handleEnquiryForm(request) {
 
         Put your Zoho business email here.
     */
-    const digitalRoot9Email = "Patrick@digitaltoor9.com";
+    const digitalRoot9Email = "Patrick@digitalroot9.com";
 
     /*
         Put your personal Gmail or Outlook email here.
