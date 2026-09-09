@@ -1,214 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
-  <meta property="og:title" content="Portfolio" />
-
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" />
-
-  <!-- Tailwind CSS (Play CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'bg-0': '#0f1114',
-            'bg-1': '#161a1e',
-            'bg-2': '#1e2228',
-            'bg-3': '#252a32',
-            'bg-4': '#2e353e',
-            'bg-5': '#3a4250',
-            'text-0': '#f0f4f8',
-            'text-1': '#94a3b8',
-            'text-2': '#64748b',
-            'text-3': '#475569',
-            'green': {
-              DEFAULT: '#06b6d4',
-              dim: '#0891b2',
-            },
-            'border-default': '#252a32',
-            'border-subtle': '#1c2028',
-            'border-hover': '#323a45',
-          },
-          fontFamily: {
-            sans: ['"Work Sans"', '-apple-system', 'system-ui', 'sans-serif'],
-            display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
-          },
-          borderRadius: {
-            DEFAULT: '9px',
-            lg: '14px',
-          },
-        },
-      },
-    }
-  </script>
-
-  <!-- Theme CSS Custom Properties -->
-  <style>
-    :root {
-      --color-bg-0: #0f1114;
-      --color-bg-1: #161a1e;
-      --color-bg-2: #1e2228;
-      --color-bg-3: #252a32;
-      --color-bg-4: #2e353e;
-      --color-bg-5: #3a4250;
-      --color-text-0: #f0f4f8;
-      --color-text-1: #94a3b8;
-      --color-text-2: #64748b;
-      --color-text-3: #475569;
-      --color-green: #06b6d4;
-      --color-green-dim: #0891b2;
-      --color-border-default: #252a32;
-      --color-border-subtle: #1c2028;
-      --color-border-hover: #323a45;
-      --font-sans: "Work Sans", -apple-system, system-ui, sans-serif;
-      --font-display: "Space Grotesk", system-ui, sans-serif;
-      --font-mono: "JetBrains Mono", ui-monospace, monospace;
-      --radius-default: 9px;
-      --radius-lg: 14px;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background-color: #0f1114;
-      color: #f0f4f8;
-      font-family: "Work Sans", -apple-system, system-ui, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: "Space Grotesk", system-ui, sans-serif;
-    }
-
-    .faq-content {
-      transition: max-height 0.2s ease, padding-bottom 0.2s ease;
-    }
-
-    .faq-chevron {
-      transition: transform 0.2s ease;
-    }
-  </style>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalRoot | Elite Process Automation & Digital Transformation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://jsdelivr.net"></script>
+    <!-- Plus Jakarta Sans Font -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
-<body>
+<body class="bg-[#0c0d0e] text-gray-300 antialiased selection:bg-[#00F0FF] selection:text-black">
 
-  <nav class="px-6 md:px-10 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-lg bg-green/10 flex items-center justify-center"><div class="w-4 h-4 rounded-full bg-green"></div></div>
-      <span class="font-semibold text-[15px] text-text-0 tracking-tight">CONSULTING PARTNER</span>
-    </div>
-    <div class="hidden lg:flex items-center gap-6">
-          <span class="text-[13px] text-text-2 hover:text-text-0 transition-colors cursor-pointer">Work</span>
-          <span class="text-[13px] text-text-2 hover:text-text-0 transition-colors cursor-pointer">About</span>
-          <span class="text-[13px] text-text-2 hover:text-text-0 transition-colors cursor-pointer">Contact</span>
-    </div>
-    <div class="flex items-center gap-3">
-      <button class="px-4 py-2 rounded-lg bg-green text-black text-[13px] font-semibold hover:bg-green-dim transition-colors"></button>
-      <button class="lg:hidden w-9 h-9 rounded-lg border border-border-default flex items-center justify-center text-text-2 hover:text-text-0 hover:bg-bg-3 transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-      </button>
-    </div>
-  </nav>
-
-  <section class="px-6 md:px-10 py-20 md:py-28 text-center">
-
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-4 max-w-3xl mx-auto">DigitalRoot9</h1>
-      <p class="text-text-2 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-8">&quot;We Engineer Time and Cost Savings into Your Everyday Workflows.&quot;</p>
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        <span class="px-6 py-3 rounded-lg bg-green text-black text-sm font-semibold hover:bg-green-dim transition-all inline-flex items-center gap-2">View My Work</span>
-
-      </div>
-  </section>
-
-  <!-- Unknown block type: gallery -->
-
-  <section class="px-6 md:px-10 py-12 md:py-16">
-      <h2 class="text-xl font-bold tracking-tight text-center mb-8">By the Numbers</h2>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="text-center p-4 rounded-xl bg-bg-2 border border-border-default">
-          <div class="text-3xl md:text-4xl font-bold tracking-tight text-green mb-1">24</div>
-          <div class="text-[12px] text-text-2 font-medium">Projects completed</div>
-        </div>
-        <div class="text-center p-4 rounded-xl bg-bg-2 border border-border-default">
-          <div class="text-3xl md:text-4xl font-bold tracking-tight text-green mb-1">17</div>
-          <div class="text-[12px] text-text-2 font-medium">Years experience</div>
-        </div>
-        <div class="text-center p-4 rounded-xl bg-bg-2 border border-border-default">
-          <div class="text-3xl md:text-4xl font-bold tracking-tight text-green mb-1">24</div>
-          <div class="text-[12px] text-text-2 font-medium">Happy clients</div>
-        </div>
-      </div>
-  </section>
-
-  <section class="px-6 md:px-10 py-16 md:py-20">
-      <div class="text-center mb-10">
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Client Feedback</h2>
-
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <div class="bg-bg-2 border border-border-default rounded-xl p-5 transition-all hover:border-border-hover">
-          <span class="text-green/30 block mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3"/></svg></span>
-          <p class="text-[13px] text-text-1 leading-relaxed mb-4 italic">"Exceptional work. Delivered on time with incredible attention to detail."</p>
-          <div class="flex gap-0.5"><span class="text-yellow-400"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="text-yellow-400"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="text-yellow-400"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="text-yellow-400"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="text-yellow-400"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></div>
-          <div class="flex items-center gap-3 mt-4 pt-4 border-t border-border-subtle">
-            <div class="w-9 h-9 rounded-full bg-bg-4 border border-border-default flex items-center justify-center text-[11px] font-semibold text-text-2">AR</div>
-            <div>
-              <div class="text-[12.5px] font-semibold">Alex Rivera</div>
-              <div class="text-[11px] text-text-3">CEO at Startup</div>
+    <!-- Navigation -->
+    <nav class="border-b border-gray-900 bg-[#0c0d0e]/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">
+                Digital<span class="text-[#00F0FF]">Root</span>
             </div>
-          </div>
+            <a href="#audit" class="px-5 py-2.5 rounded-lg border border-[#00F0FF]/30 text-[#00F0FF] text-sm font-semibold hover:bg-[#00F0FF]/10 transition-all duration-300">
+                Claim Audit Slot
+            </a>
         </div>
-      </div>
-  </section>
+    </nav>
 
-  <section class="px-6 md:px-10 py-16 md:py-20">
-      <div class="max-w-lg mx-auto">
-        <div class="text-center mb-8">
-          <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Get in Touch</h2>
-          <p class="text-text-2 text-sm">&quot;Wasted Time is Wasted Revenue. We Streamline Your Operations, Fast.</p>
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
+        <span class="px-3 py-1 text-xs font-semibold tracking-wider text-[#00F0FF] bg-[#00F0FF]/10 rounded-full border border-[#00F0FF]/20 uppercase">
+            Malaysian Micro-Industry Specialist
+        </span>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mt-6 leading-tight">
+            Your Operations Are Leaking Revenue. <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-emerald-400">Let's Plug the Holes.</span>
+        </h1>
+        <p class="text-lg text-gray-400 mt-6 max-w-2xl mx-auto leading-relaxed">
+            Stop drowning in manual paperwork, messy WhatsApp orders, and LHDN e-invoicing friction. We build lean, <strong class="text-white">zero-subscription AI & automation frameworks</strong> using tools like Lark Suite to protect your time and margins.
+        </p>
+        <div class="mt-10">
+            <a href="#audit" class="px-8 py-4 bg-[#00F0FF] text-black font-bold rounded-xl shadow-lg shadow-[#00F0FF]/20 hover:scale-[1.02] hover:shadow-[#00F0FF]/30 transition-all duration-300 inline-block">
+                Book Your 90-Min Operational Audit
+            </a>
         </div>
-        <form onsubmit="return false" class="space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <label class="block text-[11.5px] text-text-2 mb-1.5 font-medium">Name</label>
-              <input type="text" placeholder="Your name" class="w-full px-3 py-2.5 rounded-lg border border-border-default bg-bg-2 text-text-0 text-[13px] outline-none focus:border-green placeholder:text-text-3 transition-colors" />
-            </div>
-            <div>
-              <label class="block text-[11.5px] text-text-2 mb-1.5 font-medium">Email</label>
-              <input type="email" placeholder="you@example.com" class="w-full px-3 py-2.5 rounded-lg border border-border-default bg-bg-2 text-text-0 text-[13px] outline-none focus:border-green placeholder:text-text-3 transition-colors" />
-            </div>
-          </div>
-          <div>
-            <label class="block text-[11.5px] text-text-2 mb-1.5 font-medium">Message</label>
-            <textarea rows="4" placeholder="How can we help?" class="w-full px-3 py-2.5 rounded-lg border border-border-default bg-bg-2 text-text-0 text-[13px] outline-none focus:border-green placeholder:text-text-3 resize-y transition-colors"></textarea>
-          </div>
-          <button type="submit" class="w-full py-3 rounded-lg bg-green text-black text-sm font-semibold hover:bg-green-dim transition-all flex items-center justify-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-            Send Message
-          </button>
-        </form>
-      </div>
-  </section>
+    </section>
 
-  <footer class="px-6 md:px-10 py-6">
-      <div class="flex items-center justify-center gap-1.5 text-[11px] text-text-3">
-        <span>2026 Portfolio. All rights reserved.</span>
-        <span class="mx-1">|</span>
-        <span class="hover:text-text-1 transition-colors cursor-pointer">LinkedIn</span><span class="mx-1">|</span><span class="hover:text-text-1 transition-colors cursor-pointer">GitHub</span><span class="mx-1">|</span><span class="hover:text-text-1 transition-colors cursor-pointer">Twitter</span>
-      </div>
-  </footer>
+    <!-- The Problem Grid -->
+    <section class="max-w-6xl mx-auto px-6 py-16 border-t border-gray-900">
+        <h2 class="text-2xl md:text-3xl font-bold text-white text-center tracking-tight">The Manual Overhead Trap</h2>
+        <p class="text-gray-400 text-center mt-2">Average consultants sell you expensive recurring software. Elite operations use common sense.</p>
+        
+        <div class="grid md:grid-cols-3 gap-6 mt-12">
+            <div class="p-8 rounded-2xl bg-[#161719] border border-gray-800">
+                <div class="text-[#00F0FF] text-2xl mb-4">⏳</div>
+                <h3 class="text-white font-bold text-lg">Queue Friction</h3>
+                <p class="text-gray-400 text-sm mt-2 leading-relaxed">Staff spending peak hours wrestling with physical cards and manual spreadsheet logs instead of caring for clients.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-[#161719] border border-gray-800">
+                <div class="text-[#00F0FF] text-2xl mb-4">📥</div>
+                <h3 class="text-white font-bold text-lg">Dropped Bookings</h3>
+                <p class="text-gray-400 text-sm mt-2 leading-relaxed">Unanswered incoming inquiries sitting on WhatsApp groups. Every unlogged message is lost top-line revenue.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-[#161719] border border-gray-800">
+                <div class="text-emerald-400 text-2xl mb-4">🇲🇾</div>
+                <h3 class="text-white font-bold text-lg">LHDN Compliance Stress</h3>
+                <p class="text-gray-400 text-sm mt-2 leading-relaxed">Data chaos at the front desk bottlenecking workflows as mandatory e-invoicing mandates roll out across Malaysia.</p>
+            </div>
+        </div>
+    </section>
 
-</body>
-</html>
+    <!-- The Framework Section (Care-to-Cloud™) -->
+    <section class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-900">
+        <div class="text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">The Care-to-Cloud™ Protocol</h2>
+            <p class="text-gray-400 mt-2">A proprietary 3-horizon technical transformation built to compound over time.</p>
+        </div>
+
+        <div class="mt-12 space-y-6">
+            <div class="p-6 md:p-8 rounded-2xl bg-[#161719] border border-gray-800 flex flex-col md:flex-row gap-6 items-start">
+                <span class="px-3 py-1 text-xs font-bold bg-[#00F0FF]/10 text-[#00F0FF] border border-[#00F0FF]/20 rounded-md whitespace-nowrap">Horizon 1 (< 2 Years)</span>
+                <div>
+                    <h4 class="text-white font-bold text-lg">Immediate Front-Desk Automation</h4>
+                    <p class="text-gray-400 text-sm mt-1 leading-relaxed">We sync your appointment lines and intake pipelines straight to a free relational database. Front-desk data is instantly structured, cutting queue waiting times by up to 40%.</p>
+                </div>
+            </div>
+            <div class="p-6 md:p-8 rounded-2xl bg-[#161719] border border-gray-800 flex flex-col md:flex-row gap-6 items-start">
+                <span class="px-3 py-1 text-xs font-bold bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-md whitespace-nowrap">Horizon 2 (2 - 8 Years)</span>
+                <div>
+                    <h4 class="text-white font-bold text-lg">Manpower Reallocation</h4>
+                    <p class="text-gray-400 text-sm mt-1 leading-relaxed">Administrative data entry hours are entirely recovered. This freed manpower is shifted away from manual fire-fighting and reinvested directly into premium customer care and scaling pipeline volume.</p>
+                </div>
+            </div>
+            <div class="p-6 md:p-8 rounded-2xl bg-[#161719] border border-gray-800 flex flex-col md:flex-row gap-6 items-start">
+                <span class="px-3 py-1 text-xs font-bold bg-purple-400/10 text-purple-400 border border-purple-400/20 rounded-md whitespace-nowrap">Horizon 3 (> 8 Years)</span>
+                <div>
+                    <h4 class="text-white font-bold text-lg">The Structural Asset</h4>
+                    <p class="text-gray-400 text-sm mt-1 leading-relaxed">By completely removing the owner as the single operational bottleneck, your company transforms from an intense day-job into an institutional, automated corporate asset built to multiply across new branches safely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inbound Form Section -->
+    <section id="audit" class="max-w-2xl mx-auto px-6 py-20 border-t border-gray-900">
+        <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-b from-[#161719] to-[#0c0d0e] border border-gray-800 shadow-2xl relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#00F0FF]/5 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight text-center">Claim Your Operational Audit</h2>
+            <p class="text-gray-400 text-sm text-center mt-2 max-w-sm mx-auto">
+                I strictly accept exactly <strong class="text-[#00F0FF]">THREE</strong> private clinic or micro-SME audits each month. No messy pre-data cleanup required.
+            </p>
+
+            <!-- Standard HTML Form connected to Formspree for free lead notifications -->
+            <form action="https://formspree.io" method="POST" class="mt-8 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Your Name</label>
+                    <input type="text" name="name" required placeholder="Dr. Adam Smith" class="w-full px-4 py-3.5 rounded-xl bg-[#0c0d0e] border border-gray-800 text-white focus:outline-none focus:border-[#00F0FF] transition-colors duration-200">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Clinic / Company Name</label>
+                    <input type="text" name="company" required placeholder="Klinik Pergigian Root" class="w-full px-4 py-3.5 rounded-xl bg-[#0c0d0e] border border-gray-800 text-white focus:outline-none focus:border-[#00F0FF] transition-colors duration-200">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">WhatsApp Number</label>
+                    <input type="tel" name="whatsapp" required placeholder="+60123456789" class="w-full px-4 py-3.5 rounded-xl bg-[#0c0d0e] border border-gray-800 text-white focus:outline-none focus:border-[#00F0FF] transition-colors duration-200">
+                </div>
+                <button type="submit" class="w-full mt-4 py-4 bg-[#00F0FF] text-black font-bold text-sm tracking-wide uppercase rounded-xl hover:bg-[#00d6e4] active:scale-[0.99] transition-all duration-200 cursor-pointer">
+                    Apply for the Protocol Review
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-950 py-8 text-center text-xs text-gray-600">
