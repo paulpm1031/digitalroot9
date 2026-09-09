@@ -3,9 +3,7 @@ export default {
         const url = new URL(request.url);
 
         /*
-            ONLY HANDLE THE WEBSITE FORM.
-
-            The website form sends its information to:
+            Receive client form submissions only at:
 
             /api/enquiry
         */
@@ -17,32 +15,24 @@ export default {
         }
 
         /*
-            FOR EVERYTHING ELSE:
+            All normal website requests load your files:
 
-            Show your normal website files:
-            - index.html
-            - thank-you.html
-            - Emblem_NB.jpg
-            - CSS / images / other files
+            index.html
+            thank-you.html
+            Emblem_NB.jpg
         */
         return env.ASSETS.fetch(request);
     }
 };
 
 
-/*
-    ============================================
-    DIGITALROOT9 WEBSITE FORM EMAIL HANDLER
-    ============================================
-*/
 async function handleEnquiryForm(request) {
     const formData = await request.formData();
 
     /*
-        SPAM TRAP
+        Simple spam trap.
 
-        Real visitors cannot see this input.
-        Many spam bots fill all inputs, including hidden ones.
+        Real visitors never see this field.
     */
     const honeypot = String(
         formData.get("_gotcha") || ""
@@ -56,7 +46,7 @@ async function handleEnquiryForm(request) {
     }
 
     /*
-        READ CLIENT-ENTERED INFORMATION
+        Read details entered by the client.
     */
     const name = String(
         formData.get("name") || ""
@@ -91,7 +81,7 @@ async function handleEnquiryForm(request) {
     ).trim();
 
     /*
-        CREATE THE AUTOMATIC MALAYSIA DATE AND TIME
+        Automatic Malaysia submission date and time.
     */
     const submittedAt = new Date().toLocaleString(
         "en-MY",
@@ -103,14 +93,9 @@ async function handleEnquiryForm(request) {
     );
 
     /*
-        CHECK REQUIRED FIELDS
+        Check required form fields.
     */
-    if (
-        !name ||
-        !organisation ||
-        !environment ||
-        !whatsapp
-    ) {
+    if (!name || !organisation || !environment || !whatsapp) {
         return new Response(
             "Please return to the form and complete all required fields.",
             {
@@ -123,7 +108,7 @@ async function handleEnquiryForm(request) {
     }
 
     /*
-        MAKE TEXT SAFE FOR HTML EMAIL
+        Make client-entered text safe for email HTML.
     */
     function escapeHtml(value) {
         return value.replace(
@@ -143,52 +128,39 @@ async function handleEnquiryForm(request) {
     }
 
     const safeName = escapeHtml(name);
-
     const safeOrganisation = escapeHtml(organisation);
-
     const safeEnvironment = escapeHtml(environment);
-
     const safeWhatsapp = escapeHtml(whatsapp);
-
-    const safeEmail = escapeHtml(
-        email || "Not provided"
-    );
-
+    const safeEmail = escapeHtml(email || "Not provided");
     const safePreferredDate = escapeHtml(
         preferredDate || "Not provided"
     );
-
     const safePreferredTime = escapeHtml(
         preferredTime || "Not provided"
     );
-
     const safeChallenge = escapeHtml(
         challenge || "Not provided"
     );
 
     /*
-        ============================================
-        CHANGE ONLY THESE TWO EMAIL ADDRESSES
-        ============================================
+        =======================================
+        CHANGE THESE TWO EMAIL ADDRESSES ONLY
+        =======================================
 
-        1. Your Zoho DigitalRoot9 mailbox:
-           Example: hello@digitalroot9.com
-
-        2. Your personal Gmail or Outlook email:
-           Example: yourname@gmail.com
-
-        If you do NOT want a personal email copy:
-        set personalEmail to an empty value: ""
+        Put your Zoho business email here.
     */
-
-    const digitalRoot9Email =
-        "Patrick@digitalroot9.com";
-
-    const personalEmail =
-        "paulpm1031@gmail.com";
+    const digitalRoot9Email = "Patrick@digitaltoor9.com";
 
     /*
-        CREATE THE RECIPIENT LIST
+        Put your personal Gmail or Outlook email here.
+
+        If you do not want a personal copy, use:
+        const personalEmail = "";
+    */
+    const personalEmail = "paulpm1031@gmail.com";
+
+    /*
+        Create recipient list.
     */
     const recipients = [
         {
@@ -205,7 +177,7 @@ async function handleEnquiryForm(request) {
     }
 
     /*
-        CREATE EMAIL DATA
+        Format the email.
     */
     const emailPayload = {
         personalizations: [
@@ -215,11 +187,8 @@ async function handleEnquiryForm(request) {
         ],
 
         /*
-            You are NOT emailing the client.
-
-            This is only the technical "From" address used
-            by the email delivery service to send a notification
-            into your own inbox.
+            This is a technical sender address only.
+            The website does not send messages to clients.
         */
         from: {
             email: "no-reply@digitalroot9.paulpm1031.workers.dev",
@@ -278,219 +247,89 @@ async function handleEnquiryForm(request) {
                 type: "text/html",
 
                 value: `
-                    <div
-                        style="
-                            font-family: Arial, sans-serif;
-                            max-width: 650px;
-                            color: #18181b;
-                        "
-                    >
-                        <h2 style="margin: 0 0 16px;">
+                    <div style="font-family:Arial,sans-serif;max-width:650px;color:#18181b;">
+                        <h2 style="margin:0 0 16px;">
                             New DigitalRoot9 Healthcare Discovery Request
                         </h2>
 
-                        <p
-                            style="
-                                margin: 0 0 20px;
-                                color: #52525b;
-                            "
-                        >
-                            Submitted from the DigitalRoot9 website.
-                        </p>
-
-                        <table
-                            style="
-                                width: 100%;
-                                border-collapse: collapse;
-                            "
-                        >
+                        <table style="width:100%;border-collapse:collapse;">
                             <tr>
-                                <td
-                                    style="
-                                        width: 42%;
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
+                                <td style="width:42%;padding:12px;border:1px solid #e4e4e7;font-weight:bold;">
                                     Submitted Date & Time
                                 </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;">
                                     ${submittedAt}
                                 </td>
                             </tr>
 
                             <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;font-weight:bold;">
                                     Name
                                 </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;">
                                     ${safeName}
                                 </td>
                             </tr>
 
                             <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;font-weight:bold;">
                                     Clinic / Hospital / Medical Group
                                 </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;">
                                     ${safeOrganisation}
                                 </td>
                             </tr>
 
                             <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;font-weight:bold;">
                                     Current Application Environment
                                 </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;">
                                     ${safeEnvironment}
                                 </td>
                             </tr>
 
                             <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;font-weight:bold;">
                                     WhatsApp Number
                                 </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;">
                                     ${safeWhatsapp}
                                 </td>
                             </tr>
 
                             <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;font-weight:bold;">
                                     Business Email
                                 </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;">
                                     ${safeEmail}
                                 </td>
                             </tr>
 
                             <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;font-weight:bold;">
                                     Preferred Call Date
                                 </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;">
                                     ${safePreferredDate}
                                 </td>
                             </tr>
 
                             <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;font-weight:bold;">
                                     Preferred Call Time
                                 </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;">
                                     ${safePreferredTime}
                                 </td>
                             </tr>
 
                             <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                        vertical-align: top;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;font-weight:bold;vertical-align:top;">
                                     Main Operational Challenge
                                 </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
+                                <td style="padding:12px;border:1px solid #e4e4e7;">
                                     ${safeChallenge}
                                 </td>
                             </tr>
@@ -502,7 +341,7 @@ async function handleEnquiryForm(request) {
     };
 
     /*
-        SEND THE EMAIL TO YOUR INBOXES
+        Send the internal notification email.
     */
     const response = await fetch(
         "https://api.mailchannels.net/tx/v1/send",
@@ -518,13 +357,13 @@ async function handleEnquiryForm(request) {
     );
 
     /*
-        IF EMAIL SENDING FAILS
+        If email sending failed, show an error.
     */
     if (!response.ok) {
         const errorText = await response.text();
 
         console.log(
-            "MailChannels email sending error:",
+            "MailChannels email error:",
             errorText
         );
 
@@ -540,7 +379,7 @@ async function handleEnquiryForm(request) {
     }
 
     /*
-        IF EMAIL SENDING SUCCEEDS
+        If successful, send the client to thank-you.html.
     */
     return Response.redirect(
         new URL("/thank-you.html", request.url),
