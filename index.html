@@ -1,138 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigitalRoot | Elite Process Automation & Digital Transformation</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://jsdelivr.net"></script>
-    <!-- Plus Jakarta Sans Font -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    </style>
+    <title>DigitalRoot | Malaysian Micro-Industry Specialist</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-[#0c0d0e] text-gray-300 antialiased selection:bg-[#00F0FF] selection:text-black">
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
 
     <!-- Navigation -->
-    <nav class="border-b border-gray-900 bg-[#0c0d0e]/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">
-                Digital<span class="text-[#00F0FF]">Root</span>
+    <nav class="fixed w-full z-50 top-0 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded bg-brand-500 flex items-center justify-center text-white font-bold text-xl">D</div>
+                <span class="text-white font-bold text-xl tracking-tight">DigitalRoot</span>
             </div>
-            <a href="#audit" class="px-5 py-2.5 rounded-lg border border-[#00F0FF]/30 text-[#00F0FF] text-sm font-semibold hover:bg-[#00F0FF]/10 transition-all duration-300">
-                Claim Audit Slot
-            </a>
+            <div class="hidden md:flex items-center gap-6">
+                <span class="text-sm font-medium text-zinc-400">Malaysian Micro-Industry Specialist</span>
+                <a href="#audit" class="text-sm font-semibold bg-white text-zinc-900 px-5 py-2.5 rounded-full hover:bg-zinc-200 transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                    Claim Audit Slot
+                </a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
-        <span class="px-3 py-1 text-xs font-semibold tracking-wider text-[#00F0FF] bg-[#00F0FF]/10 rounded-full border border-[#00F0FF]/20 uppercase">
-            Malaysian Micro-Industry Specialist
-        </span>
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mt-6 leading-tight">
-            Your Operations Are Leaking Revenue. <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-emerald-400">Let's Plug the Holes.</span>
-        </h1>
-        <p class="text-lg text-gray-400 mt-6 max-w-2xl mx-auto leading-relaxed">
-            Stop drowning in manual paperwork, messy WhatsApp orders, and LHDN e-invoicing friction. We build lean, <strong class="text-white">zero-subscription AI & automation frameworks</strong> using tools like Lark Suite to protect your time and margins.
-        </p>
-        <div class="mt-10">
-            <a href="#audit" class="px-8 py-4 bg-[#00F0FF] text-black font-bold rounded-xl shadow-lg shadow-[#00F0FF]/20 hover:scale-[1.02] hover:shadow-[#00F0FF]/30 transition-all duration-300 inline-block">
-                Book Your 90-Min Operational Audit
-            </a>
-        </div>
-    </section>
-
-    <!-- The Problem Grid -->
-    <section class="max-w-6xl mx-auto px-6 py-16 border-t border-gray-900">
-        <h2 class="text-2xl md:text-3xl font-bold text-white text-center tracking-tight">The Manual Overhead Trap</h2>
-        <p class="text-gray-400 text-center mt-2">Average consultants sell you expensive recurring software. Elite operations use common sense.</p>
+    <section class="relative pt-40 pb-20 md:pt-52 md:pb-32 px-6 overflow-hidden">
+        <!-- Background Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-900/20 rounded-full blur-[120px] -z-10"></div>
         
-        <div class="grid md:grid-cols-3 gap-6 mt-12">
-            <div class="p-8 rounded-2xl bg-[#161719] border border-gray-800">
-                <div class="text-[#00F0FF] text-2xl mb-4">⏳</div>
-                <h3 class="text-white font-bold text-lg">Queue Friction</h3>
-                <p class="text-gray-400 text-sm mt-2 leading-relaxed">Staff spending peak hours wrestling with physical cards and manual spreadsheet logs instead of caring for clients.</p>
-            </div>
-            <div class="p-8 rounded-2xl bg-[#161719] border border-gray-800">
-                <div class="text-[#00F0FF] text-2xl mb-4">📥</div>
-                <h3 class="text-white font-bold text-lg">Dropped Bookings</h3>
-                <p class="text-gray-400 text-sm mt-2 leading-relaxed">Unanswered incoming inquiries sitting on WhatsApp groups. Every unlogged message is lost top-line revenue.</p>
-            </div>
-            <div class="p-8 rounded-2xl bg-[#161719] border border-gray-800">
-                <div class="text-emerald-400 text-2xl mb-4">🇲🇾</div>
-                <h3 class="text-white font-bold text-lg">LHDN Compliance Stress</h3>
-                <p class="text-gray-400 text-sm mt-2 leading-relaxed">Data chaos at the front desk bottlenecking workflows as mandatory e-invoicing mandates roll out across Malaysia.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Framework Section (Care-to-Cloud™) -->
-    <section class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-900">
-        <div class="text-center">
-            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">The Care-to-Cloud™ Protocol</h2>
-            <p class="text-gray-400 mt-2">A proprietary 3-horizon technical transformation built to compound over time.</p>
-        </div>
-
-        <div class="mt-12 space-y-6">
-            <div class="p-6 md:p-8 rounded-2xl bg-[#161719] border border-gray-800 flex flex-col md:flex-row gap-6 items-start">
-                <span class="px-3 py-1 text-xs font-bold bg-[#00F0FF]/10 text-[#00F0FF] border border-[#00F0FF]/20 rounded-md whitespace-nowrap">Horizon 1 (< 2 Years)</span>
-                <div>
-                    <h4 class="text-white font-bold text-lg">Immediate Front-Desk Automation</h4>
-                    <p class="text-gray-400 text-sm mt-1 leading-relaxed">We sync your appointment lines and intake pipelines straight to a free relational database. Front-desk data is instantly structured, cutting queue waiting times by up to 40%.</p>
-                </div>
-            </div>
-            <div class="p-6 md:p-8 rounded-2xl bg-[#161719] border border-gray-800 flex flex-col md:flex-row gap-6 items-start">
-                <span class="px-3 py-1 text-xs font-bold bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-md whitespace-nowrap">Horizon 2 (2 - 8 Years)</span>
-                <div>
-                    <h4 class="text-white font-bold text-lg">Manpower Reallocation</h4>
-                    <p class="text-gray-400 text-sm mt-1 leading-relaxed">Administrative data entry hours are entirely recovered. This freed manpower is shifted away from manual fire-fighting and reinvested directly into premium customer care and scaling pipeline volume.</p>
-                </div>
-            </div>
-            <div class="p-6 md:p-8 rounded-2xl bg-[#161719] border border-gray-800 flex flex-col md:flex-row gap-6 items-start">
-                <span class="px-3 py-1 text-xs font-bold bg-purple-400/10 text-purple-400 border border-purple-400/20 rounded-md whitespace-nowrap">Horizon 3 (> 8 Years)</span>
-                <div>
-                    <h4 class="text-white font-bold text-lg">The Structural Asset</h4>
-                    <p class="text-gray-400 text-sm mt-1 leading-relaxed">By completely removing the owner as the single operational bottleneck, your company transforms from an intense day-job into an institutional, automated corporate asset built to multiply across new branches safely.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Inbound Form Section -->
-    <section id="audit" class="max-w-2xl mx-auto px-6 py-20 border-t border-gray-900">
-        <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-b from-[#161719] to-[#0c0d0e] border border-gray-800 shadow-2xl relative overflow-hidden">
-            <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#00F0FF]/5 rounded-full blur-3xl pointer-events-none"></div>
-            
-            <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight text-center">Claim Your Operational Audit</h2>
-            <p class="text-gray-400 text-sm text-center mt-2 max-w-sm mx-auto">
-                I strictly accept exactly <strong class="text-[#00F0FF]">THREE</strong> private clinic or micro-SME audits each month. No messy pre-data cleanup required.
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-8">
+                Your Operations Are <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-emerald-300">Leaking Revenue.</span><br/>
+                Let's Plug the Holes.
+            </h1>
+            <p class="text-lg md:text-xl text-zinc-400 leading-relaxed mb-12 max-w-3xl mx-auto">
+                Stop drowning in manual paperwork, messy WhatsApp orders, and LHDN e-invoicing friction. We build lean, zero-subscription AI & automation frameworks using tools like Lark Suite to protect your time and margins.
             </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#audit" class="w-full sm:w-auto text-base font-bold bg-brand-500 text-white px-8 py-4 rounded-full hover:bg-brand-600 hover:-translate-y-1 transition-all duration-300 shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+                    Book Your 90-Min Operational Audit
+                </a>
+            </div>
+        </div>
+    </section>
 
-            <!-- Standard HTML Form connected to Formspree for free lead notifications -->
-            <form action="https://formspree.io" method="POST" class="mt-8 space-y-4">
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Your Name</label>
-                    <input type="text" name="name" required placeholder="Dr. Adam Smith" class="w-full px-4 py-3.5 rounded-xl bg-[#0c0d0e] border border-gray-800 text-white focus:outline-none focus:border-[#00F0FF] transition-colors duration-200">
+    <!-- Problems / Value Proposition Section -->
+    <section class="py-24 bg-zinc-900 border-y border-zinc-800 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 hover:border-brand-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">⏳</div>
+                    <h3 class="text-xl font-bold text-white mb-3">The Manual Overhead Trap</h3>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Average consultants sell you expensive recurring software. Elite operations use common sense and tailored logic to cut waste.
+                    </p>
                 </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Clinic / Company Name</label>
-                    <input type="text" name="company" required placeholder="Klinik Pergigian Root" class="w-full px-4 py-3.5 rounded-xl bg-[#0c0d0e] border border-gray-800 text-white focus:outline-none focus:border-[#00F0FF] transition-colors duration-200">
+                
+                <!-- Card 2 -->
+                <div class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 hover:border-brand-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">📥</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Queue Friction</h3>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Staff spending peak hours wrestling with physical cards and manual spreadsheet logs instead of actually caring for clients.
+                    </p>
                 </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">WhatsApp Number</label>
-                    <input type="tel" name="whatsapp" required placeholder="+60123456789" class="w-full px-4 py-3.5 rounded-xl bg-[#0c0d0e] border border-gray-800 text-white focus:outline-none focus:border-[#00F0FF] transition-colors duration-200">
+
+                <!-- Card 3 -->
+                <div class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 hover:border-brand-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">📉</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Dropped Bookings</h3>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Unanswered incoming inquiries sitting dead on WhatsApp groups. Every unlogged message is lost top-line revenue.
+                    </p>
                 </div>
-                <button type="submit" class="w-full mt-4 py-4 bg-[#00F0FF] text-black font-bold text-sm tracking-wide uppercase rounded-xl hover:bg-[#00d6e4] active:scale-[0.99] transition-all duration-200 cursor-pointer">
-                    Apply for the Protocol Review
-                </button>
-            </form>
+
+                <!-- Card 4 -->
+                <div class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 hover:border-brand-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">🇲🇾</div>
+                    <h3 class="text-xl font-bold text-white mb-3">LHDN Compliance Stress</h3>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Data chaos at the front desk bottlenecking workflows as mandatory e-invoicing mandates roll out aggressively across Malaysia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Protocol (Timeline) -->
+    <section class="py-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">The Care-to-Cloud™ Protocol</h2>
+                <p class="text-xl text-zinc-400">A proprietary 3-horizon technical transformation built to compound over time.</p>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="relative flex flex-col md:flex-row gap-8 items-start">
+                    <div class="hidden md:flex flex-col items-center mt-2">
+                        <div class="w-10 h-10 rounded-full bg-brand-500/20 border-2 border-brand-500 flex items-center justify-center text-brand-500 font-bold z-10">1</div>
+                        <div class="h-full w-px bg-zinc-800 absolute top-12 bottom-0 left-5"></div>
+                    </div>
+                    <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl flex-1 backdrop-blur-sm">
+                        <span class="text-brand-500 font-semibold tracking-wide text-sm uppercase mb-2 block">Horizon 1 (&lt; 2 Years)</span>
+                        <h3 class="text-2xl font-bold text-white mb-4">Immediate Front-Desk Automation</h3>
+                        <p class="text-zinc-400 leading-relaxed">We sync your appointment lines and intake pipelines straight to a free relational database. Front-desk data is instantly structured, cutting queue waiting times by up to 40%.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative flex flex-col md:flex-row gap-8 items-start">
+                    <div class="hidden md:flex flex-col items-center mt-2">
+                        <div class="w-10 h-10 rounded-full bg-zinc-800 border-2 border-zinc-700 flex items-center justify-center text-zinc-400 font-bold z-10">2</div>
+                        <div class="h-full w-px bg-zinc-800 absolute top-12 bottom-0 left-5"></div>
+                    </div>
+                    <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl flex-1 backdrop-blur-sm">
+                        <span class="text-zinc-500 font-semibold tracking-wide text-sm uppercase mb-2 block">Horizon 2 (2 - 8 Years)</span>
+                        <h3 class="text-2xl font-bold text-white mb-4">Manpower Reallocation</h3>
+                        <p class="text-zinc-400 leading-relaxed">Administrative data entry hours are entirely recovered. This freed manpower is shifted away from manual fire-fighting and reinvested directly into premium customer care and scaling pipeline volume.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative flex flex-col md:flex-row gap-8 items-start">
+                    <div class="hidden md:flex flex-col items-center mt-2">
+                        <div class="w-10 h-10 rounded-full bg-zinc-800 border-2 border-zinc-700 flex items-center justify-center text-zinc-400 font-bold z-10">3</div>
+                    </div>
+                    <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl flex-1 backdrop-blur-sm">
+                        <span class="text-zinc-500 font-semibold tracking-wide text-sm uppercase mb-2 block">Horizon 3 (&gt; 8 Years)</span>
+                        <h3 class="text-2xl font-bold text-white mb-4">The Structural Asset</h3>
+                        <p class="text-zinc-400 leading-relaxed">By completely removing the owner as the single operational bottleneck, your company transforms from an intense day-job into an institutional, automated corporate asset built to multiply across new branches safely.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audit CTA / Form Section -->
+    <section id="audit" class="py-24 bg-zinc-900 border-t border-zinc-800 px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                <!-- Decorative element -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-[80px]"></div>
+
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Claim Your Operational Audit</h2>
+                    <p class="text-brand-400 font-medium mb-8 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        I strictly accept exactly THREE private clinic or micro-SME audits each month. No messy pre-data cleanup required.
+                    </p>
+                    
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-zinc-400 mb-2">Your Name</label>
+                            <input type="text" placeholder="John Doe" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-zinc-400 mb-2">Clinic / Company Name</label>
+                            <input type="text" placeholder="Apex Medical Group" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-zinc-400 mb-2">WhatsApp Number</label>
+                            <input type="tel" placeholder="+60 12-345 6789" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-500 text-white font-bold text-lg rounded-xl px-8 py-5 mt-4 hover:bg-brand-600 transition-colors shadow-lg hover:shadow-brand-500/25">
+                            Apply for the Protocol Review
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-gray-950 py-8 text-center text-xs text-gray-600">
+    <footer class="bg-zinc-950 py-12 border-t border-zinc-900 px-6 text-center">
+        <p class="text-zinc-600 text-sm font-medium flex items-center justify-center gap-2">
+            <span class="w-6 h-6 rounded bg-brand-900/50 flex items-center justify-center text-brand-500 font-bold text-xs">D</span>
+            &copy; 2026 DigitalRoot. Malaysian Micro-Industry Specialist.
+        </p>
+    </footer>
+
+</body>
+</html>
