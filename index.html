@@ -1,12 +1,10 @@
-The website code is already a single HTML document, but below is a fully self-contained `index.html` with the **V9 emblem embedded directly inside the file**. You do not need to upload `Emblem_NB.jpg` separately.
+I’ll remove the logo (the V9 emblem) from your page while keeping the rest of the design intact. Below is the cleaned `index.html` with:
 
-Save the complete code below as exactly:
+- The emblem SVG removed from the navigation bar (only the text “DigitalRoot9” remains).
+- The emblem SVG removed from the footer.
+- The `.logo-emblem` CSS rule removed since it’s no longer used.
 
-```text
-index.html
-```
-
-Then upload only that file to the root of your GitHub repository.
+You can save this as `index.html` and upload it to your GitHub repo root.
 
 ```html
 <!DOCTYPE html>
@@ -60,12 +58,6 @@ Then upload only that file to the root of your GitHub repository.
             overflow-x: hidden;
         }
 
-        .logo-emblem {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-
         .form-success {
             display: none;
         }
@@ -84,63 +76,7 @@ Then upload only that file to the root of your GitHub repository.
 
             <a href="#top" class="flex items-center gap-3" aria-label="DigitalRoot9 home">
 
-                <!-- Embedded DigitalRoot9 V9 emblem -->
-                <div class="flex h-10 w-10 items-center justify-center overflow-hidden rounded-md border border-zinc-700 bg-black p-1">
-                    <svg
-                        class="logo-emblem"
-                        viewBox="0 0 200 200"
-                        xmlns="http://www.w3.org/2000/svg"
-                        role="img"
-                        aria-label="DigitalRoot9 V9 emblem"
-                    >
-                        <defs>
-                            <linearGradient id="goldGradientHeader" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#fbbf24"/>
-                                <stop offset="50%" stop-color="#d97706"/>
-                                <stop offset="100%" stop-color="#a16207"/>
-                            </linearGradient>
-                        </defs>
-
-                        <path
-                            d="M39 84
-                               H72
-                               C81 84 88 89 91 97
-                               L103 126
-                               L133 54
-                               C143 30 163 18 184 18
-                               C211 18 233 40 233 67
-                               C233 92 215 113 190 116
-                               L158 164
-                               C143 187 124 198 97 198
-                               C82 198 68 194 57 187
-                               L76 165
-                               C83 170 90 173 99 173
-                               C116 173 127 166 137 151
-                               L179 94
-                               C164 99 149 98 136 92
-                               C125 87 116 78 111 67
-                               L103 48
-                               L73 125
-                               L52 82
-                               H26
-                               Z"
-                            fill="url(#goldGradientHeader)"
-                            stroke="#1e3a5f"
-                            stroke-width="10"
-                            stroke-linejoin="round"
-                        />
-
-                        <circle
-                            cx="180"
-                            cy="66"
-                            r="31"
-                            fill="none"
-                            stroke="#1e3a5f"
-                            stroke-width="10"
-                        />
-                    </svg>
-                </div>
-
+                <!-- Logo emblem removed; text-only brand -->
                 <span class="text-xl font-bold tracking-tight text-white">
                     DigitalRoot9
                 </span>
@@ -488,63 +424,7 @@ Then upload only that file to the root of your GitHub repository.
     <footer class="border-t border-zinc-900 bg-zinc-950 px-6 py-12 text-center">
         <p class="flex items-center justify-center gap-2 text-sm font-medium text-zinc-600">
 
-            <!-- Embedded V9 emblem in footer -->
-            <span class="flex h-6 w-6 items-center justify-center overflow-hidden rounded-sm border border-zinc-800 bg-black p-0.5">
-                <svg
-                    class="logo-emblem"
-                    viewBox="0 0 200 200"
-                    xmlns="http://www.w3.org/2000/svg"
-                    role="img"
-                    aria-label="DigitalRoot9 V9 emblem"
-                >
-                    <defs>
-                        <linearGradient id="goldGradientFooter" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#fbbf24"/>
-                            <stop offset="50%" stop-color="#d97706"/>
-                            <stop offset="100%" stop-color="#a16207"/>
-                        </linearGradient>
-                    </defs>
-
-                    <path
-                        d="M39 84
-                           H72
-                           C81 84 88 89 91 97
-                           L103 126
-                           L133 54
-                           C143 30 163 18 184 18
-                           C211 18 233 40 233 67
-                           C233 92 215 113 190 116
-                           L158 164
-                           C143 187 124 198 97 198
-                           C82 198 68 194 57 187
-                           L76 165
-                           C83 170 90 173 99 173
-                           C116 173 127 166 137 151
-                           L179 94
-                           C164 99 149 98 136 92
-                           C125 87 116 78 111 67
-                           L103 48
-                           L73 125
-                           L52 82
-                           H26
-                           Z"
-                        fill="url(#goldGradientFooter)"
-                        stroke="#1e3a5f"
-                        stroke-width="10"
-                        stroke-linejoin="round"
-                    />
-
-                    <circle
-                        cx="180"
-                        cy="66"
-                        r="31"
-                        fill="none"
-                        stroke="#1e3a5f"
-                        stroke-width="10"
-                    />
-                </svg>
-            </span>
-
+            <!-- Logo emblem removed from footer -->
             <span>
                 &copy; 2026 DigitalRoot9. Malaysian Micro-Industry Specialist.
             </span>
@@ -573,8 +453,4 @@ Then upload only that file to the root of your GitHub repository.
 </html>
 ```
 
-## Important
-
-This version uses an inline SVG-style emblem so it is entirely contained in `index.html`; no external JPEG or PNG logo file is required.
-
-The enquiry form currently shows a confirmation message only. To receive actual leads on GitHub Pages, connect it to a service such as Formspree, Microsoft Forms, a Power Automate flow, or a WhatsApp click-to-chat workflow.
+If you’d like, I can also tighten the header spacing now that the icon is gone, or add a simple text-only mark (e.g., “DR9”) in place of the emblem.
