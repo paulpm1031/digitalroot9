@@ -1,510 +1,134 @@
-
-export async function onRequestPost(context) {
-    const request = context.request;
-    const formData = await request.formData();
-
-    /*
-        SPAM CHECK
-
-        Real clients cannot see this field.
-        Many spam robots fill every field, including hidden ones.
-    */
-    const honeypot = String(formData.get("_gotcha") || "").trim();
-
-    if (honeypot) {
-        return Response.redirect(
-            new URL("/thank-you.html", request.url),
-            302
-        );
-    }
-
-    /*
-        DATA ENTERED BY THE CLIENT
-    */
-    const name = String(formData.get("name") || "").trim();
-
-    const organisation = String(
-        formData.get("organisation") || ""
-    ).trim();
-
-    const environment = String(
-        formData.get("environment") || ""
-    ).trim();
-
-    const whatsapp = String(
-        formData.get("whatsapp") || ""
-    ).trim();
-
-    const email = String(
-        formData.get("email") || ""
-    ).trim();
-
-    const preferredDate = String(
-        formData.get("preferredDate") || ""
-    ).trim();
-
-    const preferredTime = String(
-        formData.get("preferredTime") || ""
-    ).trim();
-
-    const challenge = String(
-        formData.get("challenge") || ""
-    ).trim();
-
-    /*
-        AUTOMATIC SUBMISSION TIME
-
-        This is created by Cloudflare in Malaysia time.
-        The client does not need to enter it.
-    */
-    const submittedAt = new Date().toLocaleString("en-MY", {
-        timeZone: "Asia/Kuala_Lumpur",
-        dateStyle: "full",
-        timeStyle: "short"
-    });
-
-    /*
-        REQUIRED FIELD CHECK
-
-        The form will not send if these main fields are empty.
-    */
-    if (!name || !organisation || !environment || !whatsapp) {
-        return new Response(
-            "Please go back and complete all required fields.",
-            {
-                status: 400,
-                headers: {
-                    "Content-Type": "text/plain"
-                }
-            }
-        );
-    }
-
-    /*
-        PROTECT THE EMAIL FORMAT
-
-        This makes client-entered text safe to display inside the email.
-    */
-    function escapeHtml(value) {
-        return value.replace(/[&<>"']/g, function (character) {
-            const characters = {
-                "&": "&amp;",
-                "<": "&lt;",
-                ">": "&gt;",
-                '"': "&quot;",
-                "'": "&#039;"
-            };
-
-            return characters[character];
-        });
-    }
-
-    const safeName = escapeHtml(name);
-
-    const safeOrganisation = escapeHtml(organisation);
-
-    const safeEnvironment = escapeHtml(environment);
-
-    const safeWhatsapp = escapeHtml(whatsapp);
-
-    const safeEmail = escapeHtml(
-        email || "Not provided"
-    );
-
-    const safePreferredDate = escapeHtml(
-        preferredDate || "Not provided"
-    );
-
-    const safePreferredTime = escapeHtml(
-        preferredTime || "Not provided"
-    );
-
-    const safeChallenge = escapeHtml(
-        challenge || "Not provided"
-    );
-
-    /*
-        ==========================================
-        CHANGE ONLY THESE EMAIL ADDRESSES
-        ==========================================
-
-        1. digitalRoot9Email:
-           Your Zoho business mailbox.
-           Example: hello@digitalroot9.com
-
-        2. personalEmail:
-           Your personal Gmail / Outlook address.
-           If you do not want a copy in personal email,
-           leave it as an empty string: ""
-    */
-
-    const digitalRoot9Email = "Patrick@digitalroot9.com";
-
-    const personalEmail = "paulpm1031@gmail.com";
-
-    /*
-        RECIPIENT LIST
-
-        The Zoho mailbox always receives the enquiry.
-        A personal inbox copy is sent only if you entered
-        a personal email address above.
-    */
-    const recipients = [
-        {
-            email: digitalRoot9Email,
-            name: "DigitalRoot9 Enquiries"
-        }
-    ];
-
-    if (personalEmail) {
-        recipients.push({
-            email: personalEmail,
-            name: "DigitalRoot9 Personal Copy"
-        });
-    }
-
-    /*
-        CREATE THE EMAIL
-    */
-    const emailPayload = {
-        personalizations: [
-            {
-                to: recipients
-            }
-        ],
-
-        /*
-            This is a MailChannels sender address.
-
-            You are NOT sending an email from your website
-            to a client. This is only the technical sender
-            needed to deliver the notification to your inbox.
-        */
-        from: {
-            email: "no-reply@digitalroot9.pages.dev",
-            name: "DigitalRoot9 Website"
-        },
-
-        subject: "New DigitalRoot9 Healthcare Discovery Request",
-
-        content: [
-            {
-                type: "text/plain",
-
-                value:
-                    "NEW DIGITALROOT9 HEALTHCARE DISCOVERY REQUEST\\n\\n" +
-
-                    "Submitted Date & Time: " +
-                    submittedAt +
-                    "\\n\\n" +
-
-                    "Name: " +
-                    name +
-                    "\\n" +
-
-                    "Clinic / Hospital / Medical Group: " +
-                    organisation +
-                    "\\n" +
-
-                    "Current Application Environment: " +
-                    environment +
-                    "\\n" +
-
-                    "WhatsApp Number: " +
-                    whatsapp +
-                    "\\n" +
-
-                    "Business Email: " +
-                    (email || "Not provided") +
-                    "\\n" +
-
-                    "Preferred Call Date: " +
-                    (preferredDate || "Not provided") +
-                    "\\n" +
-
-                    "Preferred Call Time: " +
-                    (preferredTime || "Not provided") +
-                    "\\n" +
-
-                    "Main Operational Challenge: " +
-                    (challenge || "Not provided") +
-                    "\\n\\n" +
-
-                    "Source: DigitalRoot9 Website"
-            },
-
-            {
-                type: "text/html",
-
-                value: `
-                    <div
-                        style="
-                            font-family: Arial, sans-serif;
-                            max-width: 650px;
-                            color: #18181b;
-                        "
-                    >
-                        <h2 style="margin: 0 0 16px;">
-                            New DigitalRoot9 Healthcare Discovery Request
-                        </h2>
-
-                        <p
-                            style="
-                                color: #52525b;
-                                margin: 0 0 20px;
-                            "
-                        >
-                            Submitted from the DigitalRoot9 website.
-                        </p>
-
-                        <table
-                            style="
-                                width: 100%;
-                                border-collapse: collapse;
-                            "
-                        >
-                            <tr>
-                                <td
-                                    style="
-                                        width: 42%;
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
-                                    Submitted Date & Time
-                                </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
-                                    ${submittedAt}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
-                                    Name
-                                </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
-                                    ${safeName}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
-                                    Clinic / Hospital / Medical Group
-                                </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
-                                    ${safeOrganisation}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
-                                    Current Application Environment
-                                </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
-                                    ${safeEnvironment}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
-                                    WhatsApp Number
-                                </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
-                                    ${safeWhatsapp}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
-                                    Business Email
-                                </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
-                                    ${safeEmail}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
-                                    Preferred Call Date
-                                </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
-                                    ${safePreferredDate}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                    "
-                                >
-                                    Preferred Call Time
-                                </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
-                                    ${safePreferredTime}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                        font-weight: bold;
-                                        vertical-align: top;
-                                    "
-                                >
-                                    Main Operational Challenge
-                                </td>
-
-                                <td
-                                    style="
-                                        padding: 12px;
-                                        border: 1px solid #e4e4e7;
-                                    "
-                                >
-                                    ${safeChallenge}
-                                </td>
-                            </tr>
-                        </table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalRoot9 | Evidence-Led Healthcare Optimisation</title>
+    <!-- Tailwind CSS Engine for Layout and Form Elements -->
+    <script src="https://tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+
+    <!-- Global Navigation Header -->
+    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+            <div class="flex items-center space-x-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 font-bold text-white shadow-sm">DR9</div>
+                <span class="text-xl font-bold tracking-tight text-slate-900">DigitalRoot9</span>
+            </div>
+            <nav class="flex items-center space-x-6">
+                <a href="#methodology" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">Methodology</a>
+                <a href="#briefing" class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 transition">Request Briefing</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-white py-20 lg:py-28 overflow-hidden">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl">
+                    <span class="inline-flex items-center rounded-md bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-700/10">Healthcare Operations Optimisation</span>
+                    <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+                        Optimise Your Existing Healthcare System. <span class="text-blue-600">Earn the Right to Scale Through Evidence.</span>
+                    </h1>
+                    <p class="mt-6 text-lg leading-8 text-slate-600">
+                        DigitalRoot9 applies a phased, evidence-led methodology to reduce operational friction around your existing clinic-management system, EMR, HMS, or patient-handling application—while protecting continuity, staff adoption, and patient service.
+                    </p>
+                    <div class="mt-10 flex items-center gap-x-6">
+                        <a href="#briefing" class="rounded-md bg-blue-600 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-700 transition">Start With Paid Discovery</a>
+                        <a href="#methodology" class="text-base font-semibold leading-7 text-slate-900 hover:text-blue-600 transition">Explore the Methodology <span aria-hidden="true">→</span></a>
                     </div>
-                `
-            }
-        ]
-    };
+                </div>
+            </div>
+        </section>
 
-    /*
-        SEND THE EMAIL NOTIFICATION
-    */
-    const response = await fetch(
-        "https://api.mailchannels.net/tx/v1/send",
-        {
-            method: "POST",
+        <!-- Challenge Block -->
+        <section class="border-y border-slate-200 bg-slate-50 py-20 sm:py-24">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:mx-0">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">A capable application can still sit inside a chaotic operating model.</h2>
+                    <p class="mt-4 text-lg text-slate-600">Disconnected communication, duplicate data entry, unclear task ownership, informal staff workarounds, slow handovers, and weak reporting can limit value from even a strong clinical platform. We identify the precise constraint before recommending change.</p>
+                </div>
+                <div class="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-8 sm:mt-16 lg:max-w-none lg:grid-cols-4">
+                    <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+                        <div class="text-3xl">🧾</div>
+                        <h3 class="mt-4 font-semibold text-slate-900">Data Rework</h3>
+                        <p class="mt-2 text-sm text-slate-600 flex-grow">Patient and appointment details are copied between forms, messages, sheets, and systems.</p>
+                    </div>
+                    <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+                        <div class="text-3xl">💬</div>
+                        <h3 class="mt-4 font-semibold text-slate-900">Uncontrolled Channels</h3>
+                        <p class="mt-2 text-sm text-slate-600 flex-grow">Enquiries and follow-ups sit in chat threads without clear ownership or escalation.</p>
+                    </div>
+                    <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+                        <div class="text-3xl">⏳</div>
+                        <h3 class="mt-4 font-semibold text-slate-900">Hidden Delays</h3>
+                        <p class="mt-2 text-sm text-slate-600 flex-grow">Registration, scheduling, billing, and internal handovers take longer than management can see.</p>
+                    </div>
+                    <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+                        <div class="text-3xl">📉</div>
+                        <h3 class="mt-4 font-semibold text-slate-900">Unproven Change</h3>
+                        <p class="mt-2 text-sm text-slate-600 flex-grow">Large changes are proposed before the organisation has validated a measurable benefit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+        <!-- Methodology Section -->
+        <section id="methodology" class="bg-white py-20 sm:py-24">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:mx-0">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">The DigitalRoot9™ Methodology</h2>
+                    <p class="mt-4 text-lg text-slate-600">A five-stage architecture for safer operational change without displacing clinical judgement, governance, or the existing system of record.</p>
+                </div>
+                <div class="mx-auto mt-16 max-w-2xl lg:max-w-none">
+                    <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-12 lg:max-w-none lg:grid-cols-5">
+                        <div class="relative pl-14">
+                            <dt class="text-base font-semibold leading-7 text-slate-900">
+                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white shadow">01</div>
+                                Diagnosis
+                            </dt>
+                            <dd class="mt-2 text-sm leading-6 text-slate-600">Review approved operational data, logs, staff journeys, and baseline delays.</dd>
+                        </div>
+                        <div class="relative pl-14">
+                            <dt class="text-base font-semibold leading-7 text-slate-900">
+                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white shadow">02</div>
+                                Root Cause
+                            </dt>
+                            <dd class="mt-2 text-sm leading-6 text-slate-600">Separate technology constraints from process, role, or workaround failures.</dd>
+                        </div>
+                        <div class="relative pl-14">
+                            <dt class="text-base font-semibold leading-7 text-slate-900">
+                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white shadow">03</div>
+                                Options
+                            </dt>
+                            <dd class="mt-2 text-sm leading-6 text-slate-600">Generate a broad intervention set and focus on practical choices.</dd>
+                        </div>
+                        <div class="relative pl-14">
+                            <dt class="text-base font-semibold leading-7 text-slate-900">
+                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white shadow">04</div>
+                                Prioritise
+                            </dt>
+                            <dd class="mt-2 text-sm leading-6 text-slate-600">Rank initiatives by benefit, ease, risk, and organisational readiness.</dd>
+                        </div>
+                        <div class="relative pl-14">
+                            <dt class="text-base font-semibold leading-7 text-slate-900">
+                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white shadow">05</div>
+                                Deploy
+                            </dt>
+                            <dd class="mt-2 text-sm leading-6 text-slate-600">Pilot approved changes with testing, controls, training, and success thresholds.</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
 
-            body: JSON.stringify(emailPayload)
-        }
-    );
-
-    /*
-        IF SENDING FAILS
-    */
-    if (!response.ok) {
-        const errorText = await response.text();
-
-        console.error(
-            "MailChannels email error:",
-            errorText
-        );
-
-        return new Response(
-            "Your request could not be sent. Please try again later.",
-            {
-                status: 500,
-                headers: {
-                    "Content-Type": "text/plain"
-                }
-            }
-        );
-    }
-
-    /*
-        IF SENDING SUCCEEDS
-
-        Send the client to your thank-you page.
-    */
-    return Response.redirect(
-        new URL("/thank-you.html", request.url),
-        302
-    );
-}
+        <!-- Prioritisation Rules Section -->
+        <section class="border-t border-slate-200 bg-slate-50 py-20 sm:py-24">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:text-center">
