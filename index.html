@@ -4,134 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DigitalRoot9 | Evidence-Led Healthcare Optimisation</title>
-    <!-- Tailwind CSS Engine for Layout and Form Elements -->
-   
-    <script src="https://cdn.tailwindcss.com"></script>
-   
-
+    <!-- Standalone CSS Engine to ensure style loading without external network limits -->
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
+        body { 
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: #0f172a; 
+            color: #f8fafc; 
+            margin: 0; 
+            padding: 0;
+            line-height: 1.5;
+        }
+        .max-w-7xl { max-width: 80rem; margin: 0 auto; padding: 0 2rem; }
+        .max-w-3xl { max-width: 48rem; }
+        header { position: sticky; top: 0; z-index: 50; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border-b: 1px solid #334155; }
+        .flex-between { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+        .logo-box { background: #2563eb; color: #fff; font-weight: bold; padding: 0.5rem 0.75rem; border-radius: 0.5rem; }
+        .nav-link { color: #94a3b8; text-decoration: none; font-size: 0.875rem; font-weight: 500; margin-right: 1.5rem; transition: 0.2s; }
+        .nav-link:hover { color: #3b82f6; }
+        .btn-primary { background: #2563eb; color: #fff; text-decoration: none; padding: 0.6rem 1.25rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 500; border: none; cursor: pointer; transition: 0.2s; display: inline-block; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .hero { padding: 6rem 0; background: #0f172a; }
+        h1 { font-size: 3rem; font-weight: 800; tracking: -0.02em; margin: 1.5rem 0; line-height: 1.15; color: #fff; }
+        h1 span { color: #3b82f6; }
+        .hero p { font-size: 1.125rem; color: #94a3b8; line-height: 1.75; margin-bottom: 2rem; }
+        .challenges { padding: 5rem 0; background: #1e293b; border-top: 1px solid #334155; border-bottom: 1px solid #334155; }
+        h2 { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+        .sub-text { font-size: 1.125rem; color: #94a3b8; margin-bottom: 3rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+        .card { background: #0f172a; padding: 2rem; border-radius: 1rem; border: 1px solid #334155; }
+        .card h3 { font-size: 1.25rem; color: #fff; margin: 1rem 0 0.5rem; }
+        .card p { font-size: 0.875rem; color: #94a3b8; margin: 0; }
+        .methodology { padding: 5rem 0; background: #0f172a; }
+        .grid-5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2.5rem; margin-top: 4rem; }
+        .step { position: relative; padding-left: 1rem; border-left: 2px solid #334155; }
+        .step-num { color: #3b82f6; font-weight: bold; font-size: 0.875rem; text-transform: uppercase; }
+        .step h3 { color: #fff; font-size: 1.125rem; margin: 0.25rem 0 0.5rem; }
+        .step p { font-size: 0.875rem; color: #94a3b8; margin: 0; }
+        .briefing-sec { padding: 5rem 0; background: #1e293b; border-top: 1px solid #334155; }
+        .form-container { max-w: 36rem; margin: 3rem auto 0; background: #0f172a; padding: 2.5rem; border-radius: 1rem; border: 1px solid #334155; text-align: left; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; color: #cbd5e1; }
+        .form-control { w: 100%; width: -webkit-fill-available; width: fill-available; width: 100%; box-sizing: border-box; background: #1e293b; border: 1px solid #475569; border-radius: 0.375rem; padding: 0.65rem 0.75rem; color: #fff; font-size: 0.875rem; }
+        .form-control:focus { outline: none; border-color: #2563eb; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        footer { border-t: 1px solid #334155; padding: 3rem 0; background: #0f172a; text-align: center; font-size: 0.875rem; color: #64748b; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased">
+<body>
 
-    <!-- Global Navigation Header -->
-    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-            <div class="flex items-center space-x-3">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 font-bold text-white shadow-sm">DR9</div>
-                <span class="text-xl font-bold tracking-tight text-slate-900">DigitalRoot9</span>
+    <!-- Header Operations Zone -->
+    <header>
+        <div class="max-w-7xl flex-between">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div class="logo-box">DR9</div>
+                <span style="font-size: 1.25rem; font-weight: bold; color: #fff;">DigitalRoot9</span>
             </div>
-            <nav class="flex items-center space-x-6">
-                <a href="#methodology" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">Methodology</a>
-                <a href="#briefing" class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 transition">Request Briefing</a>
+            <nav>
+                <a href="#methodology" class="nav-link">Methodology</a>
+                <a href="#briefing" class="btn-primary">Request Briefing</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="relative bg-white py-20 lg:py-28 overflow-hidden">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <!-- Hero Display Section -->
+        <section class="hero">
+            <div class="max-w-7xl">
                 <div class="max-w-3xl">
-                    <span class="inline-flex items-center rounded-md bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-700/10">Healthcare Operations Optimisation</span>
-                    <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-                        Optimise Your Existing Healthcare System. <span class="text-blue-600">Earn the Right to Scale Through Evidence.</span>
-                    </h1>
-                    <p class="mt-6 text-lg leading-8 text-slate-600">
-                        DigitalRoot9 applies a phased, evidence-led methodology to reduce operational friction around your existing clinic-management system, EMR, HMS, or patient-handling application—while protecting continuity, staff adoption, and patient service.
-                    </p>
-                    <div class="mt-10 flex items-center gap-x-6">
-                        <a href="#briefing" class="rounded-md bg-blue-600 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-700 transition">Start With Paid Discovery</a>
-                        <a href="#methodology" class="text-base font-semibold leading-7 text-slate-900 hover:text-blue-600 transition">Explore the Methodology <span aria-hidden="true">→</span></a>
+                    <span style="color: #3b82f6; font-weight: 600; font-size: 0.875rem; text-transform: uppercase;">Healthcare Operations Optimisation</span>
+                    <h1>Optimise Your Existing Healthcare System. <span>Earn the Right to Scale Through Evidence.</span></h1>
+                    <p>DigitalRoot9 applies a phased, evidence-led methodology to reduce operational friction around your existing clinic-management system, EMR, HMS, or patient-handling application—while protecting continuity, staff adoption, and patient service.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#briefing" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 1rem;">Start With Paid Discovery</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Challenge Block -->
-        <section class="border-y border-slate-200 bg-slate-50 py-20 sm:py-24">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl lg:mx-0">
-                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">A capable application can still sit inside a chaotic operating model.</h2>
-                    <p class="mt-4 text-lg text-slate-600">Disconnected communication, duplicate data entry, unclear task ownership, informal staff workarounds, slow handovers, and weak reporting can limit value from even a strong clinical platform. We identify the precise constraint before recommending change.</p>
+        <!-- Operational Challenge Section -->
+        <section class="challenges">
+            <div class="max-w-7xl">
+                <h2>A capable application can still sit inside a chaotic operating model.</h2>
+                <p class="sub-text">Disconnected communication, duplicate data entry, unclear task ownership, informal staff workarounds, slow handovers, and weak reporting can limit value from even a strong clinical platform. We identify the precise constraint before recommending change.</p>
+                
+                <div class="grid-4">
+                    <div class="card">
+                        <div style="font-size: 1.5rem;">🧾</div>
+                        <h3>Data Rework</h3>
+                        <p>Patient and appointment details are copied between forms, messages, sheets, and systems.</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 1.5rem;">💬</div>
+                        <h3>Uncontrolled Channels</h3>
+                        <p>Enquiries and follow-ups sit in chat threads without clear ownership or escalation.</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 1.5rem;">⏳</div>
+                        <h3>Hidden Delays</h3>
+                        <p>Registration, scheduling, billing, and internal handovers take longer than management can see.</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 1.5rem;">📉</div>
+                        <h3>Unproven Change</h3>
+                        <p>Large changes are proposed before the organisation has validated a measurable benefit.</p>
+                    </div>
                 </div>
-                <div class="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-8 sm:mt-16 lg:max-w-none lg:grid-cols-4">
-                    <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-                        <div class="text-3xl">🧾</div>
-                        <h3 class="mt-4 font-semibold text-slate-900">Data Rework</h3>
-                        <p class="mt-2 text-sm text-slate-600 flex-grow">Patient and appointment details are copied between forms, messages, sheets, and systems.</p>
+            </div>
+        </section>
+
+        <!-- The Framework Architecture Section -->
+        <section id="methodology" class="methodology">
+            <div class="max-w-7xl">
+                <h2>The DigitalRoot9™ Methodology</h2>
+                <p class="sub-text">A five-stage architecture for safer operational change without displacing clinical judgement, governance, or the existing system of record.</p>
+                
+                <div class="grid-5">
+                    <div class="step">
+                        <span class="step-num">Step 01</span>
+                        <h3>Diagnosis</h3>
+                        <p>Review approved operational data, logs, staff journeys, and baseline delays.</p>
                     </div>
-                    <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-                        <div class="text-3xl">💬</div>
-                        <h3 class="mt-4 font-semibold text-slate-900">Uncontrolled Channels</h3>
-                        <p class="mt-2 text-sm text-slate-600 flex-grow">Enquiries and follow-ups sit in chat threads without clear ownership or escalation.</p>
+                    <div class="step">
+                        <span class="step-num">Step 02</span>
+                        <h3>Root Cause</h3>
+                        <p>Separate technology constraints from process, role, or workaround failures.</p>
                     </div>
-                    <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-                        <div class="text-3xl">⏳</div>
-                        <h3 class="mt-4 font-semibold text-slate-900">Hidden Delays</h3>
-                        <p class="mt-2 text-sm text-slate-600 flex-grow">Registration, scheduling, billing, and internal handovers take longer than management can see.</p>
+                    <div class="step">
+                        <span class="step-num">Step 03</span>
+                        <h3>Options</h3>
+                        <p>Generate a broad intervention set and focus on practical choices.</p>
                     </div>
-                    <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-                        <div class="text-3xl">📉</div>
-                        <h3 class="mt-4 font-semibold text-slate-900">Unproven Change</h3>
-                        <p class="mt-2 text-sm text-slate-600 flex-grow">Large changes are proposed before the organisation has validated a measurable benefit.</p>
+                    <div class="step">
+                        <span class="step-num">Step 04</span>
+                        <h3>Prioritise</h3>
+                        <p>Rank initiatives by benefit, ease, risk, and organisational readiness.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">Step 05</span>
+                        <h3>Deploy</h3>
+                        <p>Pilot approved changes with testing, controls, training, and success thresholds.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Methodology Section -->
-        <section id="methodology" class="bg-white py-20 sm:py-24">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl lg:mx-0">
-                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">The DigitalRoot9™ Methodology</h2>
-                    <p class="mt-4 text-lg text-slate-600">A five-stage architecture for safer operational change without displacing clinical judgement, governance, or the existing system of record.</p>
-                </div>
-                <div class="mx-auto mt-16 max-w-2xl lg:max-w-none">
-                    <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-12 lg:max-w-none lg:grid-cols-5">
-                        <div class="relative pl-14">
-                            <dt class="text-base font-semibold leading-7 text-slate-900">
-                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white shadow">01</div>
-                                Diagnosis
-                            </dt>
-                            <dd class="mt-2 text-sm leading-6 text-slate-600">Review approved operational data, logs, staff journeys, and baseline delays.</dd>
-                        </div>
-                        <div class="relative pl-14">
-                            <dt class="text-base font-semibold leading-7 text-slate-900">
-                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white shadow">02</div>
-                                Root Cause
-                            </dt>
-                            <dd class="mt-2 text-sm leading-6 text-slate-600">Separate technology constraints from process, role, or workaround failures.</dd>
-                        </div>
-                        <div class="relative pl-14">
-                            <dt class="text-base font-semibold leading-7 text-slate-900">
-                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white shadow">03</div>
-                                Options
-                            </dt>
-                            <dd class="mt-2 text-sm leading-6 text-slate-600">Generate a broad intervention set and focus on practical choices.</dd>
-                        </div>
-                        <div class="relative pl-14">
-                            <dt class="text-base font-semibold leading-7 text-slate-900">
-                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white shadow">04</div>
-                                Prioritise
-                            </dt>
-                            <dd class="mt-2 text-sm leading-6 text-slate-600">Rank initiatives by benefit, ease, risk, and organisational readiness.</dd>
-                        </div>
-                        <div class="relative pl-14">
-                            <dt class="text-base font-semibold leading-7 text-slate-900">
-                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white shadow">05</div>
-                                Deploy
-                            </dt>
-                            <dd class="mt-2 text-sm leading-6 text-slate-600">Pilot approved changes with testing, controls, training, and success thresholds.</dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-        </section>
-
-        <!-- Prioritisation Rules Section -->
-        <section class="border-t border-slate-200 bg-slate-50 py-20 sm:py-24">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl lg:text-center">
+        <!-- Direct Form Action Zone Layout -->
+        <section id="briefing" class="briefing-sec">
+            <div class="max-w-7xl" style="text-align: center;">
+                <h2>Discovery engagement</h2>
+                <p class="sub-text" style="max-width: 38rem; margin: 0 auto;">Start with a defined problem—not an open-ended overhaul. Request a briefing to discuss the operating challenge, existing platform landscape, scope boundary, and the target result.</p>
+                
+                <!-- THE CAPTURE CONTAINER BLOCK -->
+                <div class="form-container">
