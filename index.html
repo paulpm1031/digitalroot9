@@ -24,7 +24,6 @@
             padding-bottom: 40px;
         }
         header {
-            border-b: 1px solid #1e293b;
             background-color: rgba(11, 15, 25, 0.85);
             backdrop-filter: blur(8px);
             position: sticky;
@@ -110,6 +109,7 @@
             justify-content: center;
             gap: 16px;
             flex-wrap: wrap;
+            margin-bottom: 48px;
         }
         .btn-primary {
             background-color: #10b981;
@@ -137,6 +137,22 @@
             background-color: rgba(30, 41, 59, 0.6);
         }
 
+        /* Hero Image Container Styling */
+        .hero-media-wrapper {
+            max-w: 800px;
+            margin: 0 auto;
+            border-radius: 16px;
+            border: 1px solid rgba(30, 41, 59, 0.6);
+            padding: 6px;
+            background-color: rgba(15, 23, 42, 0.2);
+        }
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
         /* Grid Section */
         .section-framework {
             padding: 80px 24px;
@@ -159,7 +175,7 @@
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1xl));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 32px;
         }
         .card {
@@ -281,12 +297,22 @@
         <p>Helping healthcare organizations systematically eliminate operational delays, optimize patient intake, and securely protect margins eroding from system constraints.</p>
         <div class="cta-group">
             <a href="#contact" class="btn-primary">Fix Your Operational Bottlenecks</a>
-            <a href="#contact" class="btn-secondary">Explore Methodologies</a>
+            <a href="#methodology" class="btn-secondary">Explore Methodologies</a>
+        </div>
+        
+        <!-- Optimized Emblem Media Section with loading="lazy" -->
+        <div class="hero-media-wrapper">
+            <img src="Emblem_NB.jpg" 
+                 alt="Operational Transformation Strategy Emblem" 
+                 class="hero-img" 
+                 loading="lazy" 
+                 width="800" 
+                 height="450">
         </div>
     </section>
 
     <!-- Frameworks & Methodologies Section -->
-    <section class="section-framework">
+    <section id="methodology" class="section-framework">
         <div class="section-header">
             <h2>Engineered Operations Framework</h2>
             <p>Deploying an agile, hybrid optimization structure rooted in globally proven frameworks to isolate waste and maximize clinical yield.</p>
@@ -298,22 +324,3 @@
                 <div class="card-num">01</div>
                 <h3>Theory of Constraints (TOC)</h3>
                 <p>Isolating and resolving the definitive "Front Door" intake bottleneck that restricts facility-wide patient throughput and downstream velocity.</p>
-            </div>
-            <!-- Card 2 -->
-            <div class="card">
-                <div class="card-num">02</div>
-                <h3>Lean (DOWNTIME Framework)</h3>
-                <p>Systematically identifying and extracting the 8 operational wastes, eliminating redundant manual steps, and reducing staff burnout.</p>
-            </div>
-            <!-- Card 3 -->
-            <div class="card">
-                <div class="card-num">03</div>
-                <h3>Six Sigma (DMAIC Pass)</h3>
-                <p>Stabilizing processing variance. We use rigorous data modeling to ensure standard, predictable onboarding and revenue cycle timelines.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Form Section -->
-    <section class="section-form">
-        <div class="section-header">
