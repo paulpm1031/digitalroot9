@@ -4,131 +4,316 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operational Transformation Consulting</title>
-    <!-- Tailwind CSS Script -->
-    <script src="https://jsdelivr.net"></script>
-    <!-- Font -->
+    <!-- Premium Google Font -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0B0F19; }
+        /* Modern Pure CSS Reset & Dark Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0B0F19;
+            color: #cbd5e1;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+        header {
+            border-b: 1px solid #1e293b;
+            background-color: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid #1e293b;
+        }
+        .nav-container {
+            max-w: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.025em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo span {
+            color: #34d399;
+        }
+        .btn-small {
+            background-color: #10b981;
+            color: #020617;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: background 0.2s;
+        }
+        .btn-small:hover {
+            background-color: #34d399;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 100px 24px 80px 24px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            margin-bottom: 24px;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+        }
+        h1 span {
+            background: linear-gradient(to right, #34d399, #2dd4bf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background-color: #10b981;
+            color: #020617;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: #34d399;
+        }
+        .btn-secondary {
+            border: 1px solid #1e293b;
+            background-color: rgba(30, 41, 59, 0.3);
+            color: #ffffff;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-secondary:hover {
+            background-color: rgba(30, 41, 59, 0.6);
+        }
+
+        /* Grid Section */
+        .section-framework {
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid #111827;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+        }
+        .section-header h2 {
+            font-size: 2.25rem;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+        .section-header p {
+            color: #94a3b8;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1xl));
+            gap: 32px;
+        }
+        .card {
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(30, 41, 59, 0.8);
+            background-color: rgba(15, 23, 42, 0.3);
+            transition: all 0.3s;
+        }
+        .card:hover {
+            border-color: rgba(148, 163, 184, 0.3);
+        }
+        .card-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+        .card p {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        /* Form Section */
+        .section-form {
+            padding: 80px 24px;
+            max-width: 800px;
+            margin: 0 auto;
+            border-top: 1px solid #111827;
+        }
+        form {
+            background-color: rgba(15, 23, 42, 0.5);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(30, 41, 59, 0.8);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
+            h1 { font-size: 2.25rem; }
+        }
+        .form-group {
+            margin-bottom: 24px;
+        }
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 8px;
+        }
+        input, textarea {
+            width: 100%;
+            background-color: #020617;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-size: 0.875rem;
+            color: #ffffff;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #10b981;
+        }
+        textarea {
+            resize: none;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #10b981;
+            color: #020617;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-submit:hover {
+            background-color: #34d399;
+        }
     </style>
 </head>
-<body class="text-slate-300 antialiased">
+<body>
 
     <!-- Header Navigation -->
-    <header class="border-b border-slate-800 bg-[#0B0F19]/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                <span class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></span>
-                OPS<span class="text-emerald-400">TRANSFORM</span>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                OPS<span>TRANSFORM</span>
             </div>
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-                <a href="#methodology" class="hover:text-white transition-colors">Methodology</a>
-                <a href="#outcomes" class="hover:text-white transition-colors">Outcomes</a>
-                <a href="#contact" class="bg-emerald-500 text-slate-950 px-5 py-2.5 rounded-lg hover:bg-emerald-400 transition-all font-semibold shadow-lg shadow-emerald-500/10">Book Audit</a>
-            </nav>
+            <a href="#contact" class="btn-small">Book Audit</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative py-24 md:py-32 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(16,185,129,0.08),transparent_50%)]"></div>
-        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-6">
-                Independent Operations Advisory
-            </span>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
-                Stop the Revenue Leaks.<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">Accelerate Operational Flow.</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed">
-                Helping healthcare organizations systematically eliminate operational delays, optimize patient intake, and securely protect margins eroding from system constraints.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contact" class="bg-emerald-500 text-slate-950 px-8 py-4 rounded-xl text-base font-semibold hover:bg-emerald-400 transition-all shadow-xl shadow-emerald-500/20">
-                    Fix Your Operational Bottlenecks
-                </a>
-                <a href="#methodology" class="border border-slate-800 bg-slate-900/50 hover:bg-slate-900 px-8 py-4 rounded-xl text-base font-semibold text-white transition-all">
-                    Explore Methodologies
-                </a>
-            </div>
+    <section class="hero">
+        <span class="badge">Independent Operations Advisory</span>
+        <h1>Stop the Revenue Leaks.<br><span>Accelerate Operational Flow.</span></h1>
+        <p>Helping healthcare organizations systematically eliminate operational delays, optimize patient intake, and securely protect margins eroding from system constraints.</p>
+        <div class="cta-group">
+            <a href="#contact" class="btn-primary">Fix Your Operational Bottlenecks</a>
+            <a href="#contact" class="btn-secondary">Explore Methodologies</a>
         </div>
     </section>
 
     <!-- Frameworks & Methodologies Section -->
-    <section id="methodology" class="py-20 border-t border-slate-900 bg-slate-950/40 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-white tracking-tight sm:text-4xl mb-4">Engineered Operations Framework</h2>
-                <p class="text-slate-400">Deploying an agile, hybrid optimization structure rooted in globally proven frameworks to isolate waste and maximize clinical yield.</p>
-            </div>
+    <section class="section-framework">
+        <div class="section-header">
+            <h2>Engineered Operations Framework</h2>
+            <p>Deploying an agile, hybrid optimization structure rooted in globally proven frameworks to isolate waste and maximize clinical yield.</p>
+        </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="p-8 rounded-2xl border border-slate-800/80 bg-slate-900/30 hover:border-slate-700/50 transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold mb-6">01</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Theory of Constraints (TOC)</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Isolating and resolving the definitive "Front Door" intake bottleneck that restricts facility-wide patient throughput and downstream velocity.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="p-8 rounded-2xl border border-slate-800/80 bg-slate-900/30 hover:border-slate-700/50 transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold mb-6">02</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Lean (DOWNTIME Framework)</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Systematically identifying and extracting the 8 operational wastes, eliminating redundant manual steps, and reducing staff burnout.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="p-8 rounded-2xl border border-slate-800/80 bg-slate-900/30 hover:border-slate-700/50 transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold mb-6">03</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Six Sigma (DMAIC Pass)</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Stabilizing processing variance. We use rigorous data modeling to ensure standard, predictable onboarding and revenue cycle timelines.</p>
-                </div>
+        <div class="grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-num">01</div>
+                <h3>Theory of Constraints (TOC)</h3>
+                <p>Isolating and resolving the definitive "Front Door" intake bottleneck that restricts facility-wide patient throughput and downstream velocity.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-num">02</div>
+                <h3>Lean (DOWNTIME Framework)</h3>
+                <p>Systematically identifying and extracting the 8 operational wastes, eliminating redundant manual steps, and reducing staff burnout.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-num">03</div>
+                <h3>Six Sigma (DMAIC Pass)</h3>
+                <p>Stabilizing processing variance. We use rigorous data modeling to ensure standard, predictable onboarding and revenue cycle timelines.</p>
             </div>
         </div>
     </section>
 
-    <!-- Dynamic Intake Form Section -->
-    <section id="contact" class="py-24 relative border-t border-slate-900 bg-[#0B0F19]">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(20,184,166,0.05),transparent_50%)]"></div>
-        <div class="max-w-4xl mx-auto px-6 relative z-10">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold text-white tracking-tight sm:text-4xl mb-4">Request a Process Diagnostics Assessment</h2>
-                <p class="text-slate-400">Provide details on your current operations below. The operational data submitted will securely direct straight to my review inbox.</p>
-            </div>
-
-            <!-- Form Start -->
-            <!-- REPLACE 'your_formspree_id' WITH A FREE ID FROM FORMSPREE.IO TO LIVE ROUTE TO YOUR EMAIL -->
-            <form action="https://formspree.io" method="POST" class="space-y-6 bg-slate-900/40 p-8 md:p-10 rounded-3xl border border-slate-800/80 shadow-2xl backdrop-blur-sm">
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Client Name Input -->
-                    <div>
-                        <label for="name" class="block text-sm font-semibold text-slate-200 mb-2">Client / Institution Name</label>
-                        <input type="text" name="Client Name" id="name" required placeholder="e.g., Global Health Clinic" 
-                            class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition-colors">
-                    </div>
-                    <!-- Contact Email Input -->
-                    <div>
-                        <label for="email" class="block text-sm font-semibold text-slate-200 mb-2">Your Business Email</label>
-                        <input type="email" name="Client Email" id="email" required placeholder="e.g., director@facility.com" 
-                            class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition-colors">
-                    </div>
-                </div>
-
-                <!-- Process Details Input -->
-                <div>
-                    <label for="process_details" class="block text-sm font-semibold text-slate-200 mb-2">Process Details</label>
-                    <textarea name="Process Details" id="process_details" rows="3" required placeholder="Describe your day-to-day workflow, current facility scale, channels, or current software systems in place..." 
-                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition-colors resize-none"></textarea>
-                </div>
-
-                <!-- Pain Points Input -->
-                <div>
-                    <label for="pain_points" class="block text-sm font-semibold text-slate-200 mb-2">Primary Pain Points & Leakage Gaps</label>
-                    <textarea name="Pain Points" id="pain_points" rows="3" required placeholder="Where are you experiencing insurance verification stalls, long patient wait loops, or high claim denial rates?" 
-                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition-colors resize-none"></textarea>
-                </div>
-
-                <!-- Appointment Details Input -->
-                <div>
-                    <label for="appointment_details" class="block text-sm font-semibold text-slate-200 mb-2">Preferred Appointment Details</label>
-Til
+    <!-- Form Section -->
+    <section class="section-form">
+        <div class="section-header">
