@@ -3,332 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operational Transformation Strategy | Healthcare Consulting</title>
-    <!-- Premium Google Font -->
+    <title>Operational Transformation Strategy | Healthcare Operations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* CSS Reset & Variable Definitions */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0B0F19;
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
-        
-        /* Utility Layout Styles */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0B0F19; color: #cbd5e1; line-height: 1.4; font-size: 0.9rem; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
         .text-center { text-align: center; }
-        .badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            background-color: rgba(16, 185, 129, 0.1);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Header Navigation */
-        header {
-            background-color: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #1e293b;
-        }
-        .nav-container {
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .brand-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo-icon {
-            color: #34d399;
-            display: flex;
-            align-items: center;
-        }
-        .logo-text {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: -0.025em;
-        }
-        .logo-text span { color: #34d399; }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-        .nav-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: #ffffff; }
-        .btn-small {
-            background-color: #10b981;
-            color: #020617;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.875rem;
-            transition: background 0.2s;
-        }
-        .btn-small:hover { background-color: #34d399; }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            padding: 120px 0 80px 0;
-            overflow: hidden;
-        }
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1.15;
-            margin-bottom: 24px;
-            letter-spacing: -0.03em;
-        }
-        h1 span {
-            background: linear-gradient(to right, #34d399, #2dd4bf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            color: #94a3b8;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-        .btn-primary {
-            background-color: #10b981;
-            color: #020617;
-            padding: 16px 36px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            display: inline-block;
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
-            transition: background 0.2s;
-            margin-bottom: 48px;
-        }
-        .btn-primary:hover { background-color: #34d399; }
         
-        /* Image Center Wrapper Styling */
-        .media-center-wrapper {
-            max-width: 850px;
-            margin: 40px auto 0 auto;
-            border-radius: 16px;
-            border: 1px solid rgba(30, 41, 59, 0.6);
-            padding: 8px;
-            background-color: rgba(15, 23, 42, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-        .display-img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            display: block;
-        }
+        /* Header Navigation - Compact */
+        header { background-color: rgba(11, 15, 25, 0.9); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #1e293b; }
+        .nav-container { height: 50px; display: flex; align-items: center; justify-content: space-between; }
+        .brand-wrapper { display: flex; align-items: center; gap: 8px; }
+        .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: cover; display: block; }
+        .logo-text { font-size: 1.1rem; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; }
+        .logo-text span { color: #34d399; }
+        .nav-links { display: flex; align-items: center; gap: 20px; }
+        .nav-links a { color: #94a3b8; text-decoration: none; font-size: 0.8rem; font-weight: 500; }
+        .nav-links a:hover { color: #ffffff; }
+        .btn-small { background-color: #10b981; color: #020617; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.8rem; }
 
-        /* General Sections Styling */
-        section {
-            padding: 90px 0;
-            border-top: 1px solid #1e293b;
-        }
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-        .section-desc {
-            color: #94a3b8;
-            max-width: 700px;
-            margin: 0 auto 60px auto;
-            font-size: 1rem;
-        }
+        /* Hero Section - Compact */
+        .hero { padding: 40px 0 24px 0; }
+        .hero-content { max-width: 800px; margin: 0 auto; }
+        h1 { font-size: 2.2rem; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 12px; letter-spacing: -0.02em; }
+        h1 span { background: linear-gradient(to right, #34d399, #2dd4bf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1rem; color: #94a3b8; margin-bottom: 20px; }
+        .btn-primary { background-color: #10b981; color: #020617; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block; margin-bottom: 24px; }
+        
+        .media-center-wrapper { max-width: 650px; margin: 16px auto 0 auto; border-radius: 8px; border: 1px solid #1e293b; padding: 4px; background-color: rgba(15, 23, 42, 0.2); }
+        .display-img { width: 100%; height: auto; border-radius: 6px; display: block; }
 
-        /* Module 1: Boundary Scoping Tables */
-        .table-responsive {
-            overflow-x: auto;
-            margin-bottom: 40px;
-            border-radius: 16px;
-            border: 1px solid #1e293b;
-            background-color: rgba(15, 23, 42, 0.2);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.95rem;
-        }
-        th, td {
-            padding: 16px 24px;
-            border-bottom: 1px solid #1e293b;
-        }
-        th {
-            background-color: #0f172a;
-            color: #ffffff;
-            font-weight: 600;
-        }
-        tr:last-child td { border-bottom: none; }
-        .table-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        /* Sections General Layout - Dense */
+        section { padding: 40px 0; border-top: 1px solid #1e293b; }
+        .section-title { font-size: 1.6rem; font-weight: 700; color: #ffffff; margin-bottom: 8px; }
+        .section-desc { color: #94a3b8; margin-bottom: 24px; font-size: 0.85rem; }
 
-        /* Module 2 & 3: Functional Grids */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-        }
-        .card {
-            padding: 36px;
-            border-radius: 16px;
-            border: 1px solid #1e293b;
-            background-color: rgba(15, 23, 42, 0.3);
-            transition: all 0.3s ease;
-        }
-        .card:hover {
-            border-color: rgba(52, 211, 153, 0.3);
-            transform: translateY(-2px);
-        }
-        .card-num {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background-color: rgba(16, 185, 129, 0.1);
-            color: #34d399;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-        }
-        .card h3 {
-            font-size: 1.25rem;
-            color: #ffffff;
-            margin-bottom: 12px;
-        }
-        .card p {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            margin-bottom: 12px;
-        }
-        .card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .card ul li {
-            font-size: 0.85rem;
-            color: #cbd5e1;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-        .card ul li::before {
-            content: "•";
-            color: #10b981;
-            font-weight: bold;
-        }
+        /* Module 1: Tables - Tight padding */
+        .table-responsive { overflow-x: auto; margin-bottom: 20px; border-radius: 8px; border: 1px solid #1e293b; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        th, td { padding: 10px 14px; border-bottom: 1px solid #1e293b; }
+        th { background-color: #0f172a; color: #ffffff; font-weight: 600; }
+        .table-title { font-size: 1rem; font-weight: 600; color: #ffffff; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
 
-        /* Forms Elements */
-        .form-box {
-            background-color: rgba(15, 23, 42, 0.4);
-            padding: 48px;
-            border-radius: 24px;
-            border: 1px solid #1e293b;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 24px;
-        }
-        .form-group { margin-bottom: 24px; }
-        label {
-            display: block;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #e2e8f0;
-            margin-bottom: 8px;
-        }
-        input, textarea, select {
-            width: 100%;
-            background-color: #020617;
-            border: 1px solid #1e293b;
-            border-radius: 12px;
-            padding: 14px 16px;
-            font-size: 0.875rem;
-            color: #ffffff;
-            font-family: inherit;
-            transition: border-color 0.2s;
-        }
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: #10b981;
-        }
-        textarea { resize: none; }
-        .btn-submit {
-            width: 100%;
-            background-color: #10b981;
-            color: #020617;
-            border: none;
-            border-radius: 12px;
-            padding: 16px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-submit:hover { background-color: #34d399; }
+        /* Modules 2 & 3: Grid Structures */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+        .card { padding: 20px; border-radius: 12px; border: 1px solid #1e293b; background-color: rgba(15, 23, 42, 0.3); }
+        .card-num { width: 32px; height: 32px; border-radius: 6px; background-color: rgba(16, 185, 129, 0.1); color: #34d399; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-size: 0.8rem; }
+        .card h3 { font-size: 1.05rem; color: #ffffff; margin-bottom: 8px; }
+        .card p { font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px; }
+        .card ul { list-style: none; }
+        .card ul li { font-size: 0.8rem; color: #cbd5e1; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+        .card ul li::before { content: "•"; color: #10b981; }
 
-        /* Responsive Breakpoints */
+        /* Form Layout - Tight fields */
+        .form-box { background-color: rgba(15, 23, 42, 0.4); padding: 24px; border-radius: 16px; border: 1px solid #1e293b; max-width: 700px; margin: 0 auto; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-group { margin-bottom: 12px; }
+        label { display: block; font-size: 0.8rem; font-weight: 600; color: #e2e8f0; margin-bottom: 4px; }
+        input, textarea, select { width: 100%; background-color: #020617; border: 1px solid #1e293b; border-radius: 8px; padding: 10px 12px; font-size: 0.8rem; color: #ffffff; font-family: inherit; }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #10b981; }
+        .btn-submit { width: 100%; background-color: #10b981; color: #020617; border: none; border-radius: 8px; padding: 12px; font-size: 0.9rem; font-weight: 700; cursor: pointer; }
+
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 1.8rem; }
             .form-row { grid-template-columns: 1fr; }
             .nav-links { display: none; }
         }
@@ -340,51 +80,39 @@
     <header>
         <div class="container nav-container">
             <div class="brand-wrapper">
-                <!-- Premium Geometric Logo Icon Next to Text -->
-                <div class="logo-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                </div>
-                <div class="logo-text">DIGITAL<span>ROOT9</span></div>
+                <img src="Emblem_NB.jpg" alt="Logo Icon" class="logo-img" onerror="this.style.display='none'">
+                <div class="logo-text">DIGITAL<span>R00T9</span></div>
             </div>
             <nav class="nav-links">
-                <a href="#scoping">Scope & Metrics</a>
+                <a href="#scoping">Scope</a>
                 <a href="#frameworks">Methodologies</a>
-                <a href="#ai-options">AI Options</a>
-                <a href="#roadmap">Execution Roadmap</a>
+                <a href="#ai-options">AI Solutions</a>
+                <a href="#roadmap">Roadmap</a>
                 <a href="#audit" class="btn-small">Book Audit</a>
             </nav>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero text-center">
         <div class="container">
             <div class="hero-content">
-                <span class="badge">Operational Transformation Strategy</span>
-                <h1>Stop the Revenue Leaks.<br><span>Accelerate Healthcare Operations.</span></h1>
-                <p>Eliminate front-door structural bottlenecks, remove manual processing waste, and capture bottom-line savings through digital systems built for global scale.</p>
+                <h1 class="text-center">Stop the Revenue Leaks.<br><span>Accelerate Healthcare Operations.</span></h1>
+                <p class="text-center">Eliminate front-door structural bottlenecks, remove manual processing waste, and capture bottom-line savings through digital systems built for global scale.</p>
                 <a href="#audit" class="btn-primary">Initiate Operational Audit</a>
                 
-                <!-- Replaced Center Container Image with processimprv.png & lazy loading -->
                 <div class="media-center-wrapper">
-                    <img src="processimprv.png" 
-                         alt="Operational Flow Process Diagram Layout" 
-                         class="display-img" 
-                         loading="lazy" 
-                         width="850" 
-                         height="450">
+                    <img src="processimprv.png" alt="Operational Flow Diagram Layout" class="display-img" loading="lazy" width="850" height="450">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Scoping Module -->
     <section id="scoping">
         <div class="container">
-            <div class="text-center">
-                <h2 class="section-title">Module 1: Boundary Scoping & Metrics</h2>
-                <p class="section-desc">Establishing fixed parameters and bottom-line target outcomes for scaling capacity and profit protection.</p>
-            </div>
+            <h2 class="section-title text-center">Module 1: Boundary Scoping & Metrics</h2>
+            <p class="section-desc text-center">Fixed parameters and bottom-line target outcomes for margin protection.</p>
 
             <div class="table-title">📂 Scope Clarification</div>
             <div class="table-responsive">
@@ -399,7 +127,7 @@
                     <tbody>
                         <tr>
                             <td><strong>Region</strong></td>
-                            <td>Global applicable across facilities adapting for local regulatory nuance.</td>
+                            <td>Global applicability across facilities adapting for local nuances.</td>
                             <td>Region-specific clinical licensing and formal compliance filings.</td>
                         </tr>
                         <tr>
@@ -411,11 +139,6 @@
                             <td><strong>Functions</strong></td>
                             <td>Patient onboarding, clinical flow, revenue cycles, supply chain, workforce analytics.</td>
                             <td>Clinical/medical decision-making, diagnosis, and direct treatment protocols.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Time Horizon</strong></td>
-                            <td>Phased deployments: 0–3 months (diagnostic) up to 12+ months (transformation).</td>
-                            <td>Permanent infrastructure structural engineering.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -442,11 +165,6 @@
                             <td>Patient onboarding turnaround time (TAT)</td>
                             <td>Cut average onboarding TAT by 30–50% (Registration → First Touch).</td>
                         </tr>
-                        <tr>
-                            <td><strong>Qualitative</strong></td>
-                            <td>Patient experience index & staff burnout indicators</td>
-                            <td>Improve patient NPS by 15 pts; reduce frontline staff attrition by 20%.</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -455,10 +173,8 @@
 
     <section id="frameworks">
         <div class="container">
-            <div class="text-center">
-                <h2 class="section-title">Operational Excellence Frameworks</h2>
-                <p class="section-desc">Integrating Theory of Constraints, Lean operational waste removal, and structural Six Sigma data modeling.</p>
-            </div>
+            <h2 class="section-title text-center">Operational Excellence Frameworks</h2>
+            <p class="section-desc text-center">Integrating Theory of Constraints, Lean operational waste removal, and structural Six Sigma data modeling.</p>
 
             <div class="grid-3">
                 <div class="card">
@@ -468,10 +184,8 @@
                     <ul>
                         <li>Eliminates insurance validation delays</li>
                         <li>Prevents duplicate document entries</li>
-                        <li>Stabilizes entry data errors early</li>
                     </ul>
                 </div>
-                
                 <div class="card">
                     <div class="card-num">02</div>
                     <h3>Lean (8 Wastes Mapped)</h3>
@@ -479,10 +193,8 @@
                     <ul>
                         <li>Defects: Coding/billing input errors</li>
                         <li>Waiting: Delays on pre-authorization</li>
-                        <li>Over-processing: Re-keying system records</li>
                     </ul>
                 </div>
-                
                 <div class="card">
                     <div class="card-num">03</div>
                     <h3>Six Sigma (DMAIC Pass)</h3>
@@ -490,7 +202,6 @@
                     <ul>
                         <li>Isolates the root 80/20 drivers of delays</li>
                         <li>Establishes baseline performance bands</li>
-                        <li>Stabilizes end-to-end processing times</li>
                     </ul>
                 </div>
             </div>
@@ -499,10 +210,8 @@
 
     <section id="ai-options">
         <div class="container">
-            <div class="text-center">
-                <h2 class="section-title">Module 3: Digital & AI Transformation</h2>
-                <p class="section-desc">Targeted, automated system deployments designed to accelerate functional flow.</p>
-            </div>
+            <h2 class="section-title text-center">Module 3: Digital & AI Transformation</h2>
+            <p class="section-desc text-center">Targeted, automated system deployments designed to accelerate functional flow.</p>
 
             <div class="grid-3">
                 <div class="card">
@@ -511,7 +220,6 @@
                     <ul>
                         <li>AI-powered intake self-service kiosks</li>
                         <li>Automated eligibility & e-KYC verification</li>
-                        <li>Demand-forecasting for footfall paths</li>
                     </ul>
                 </div>
                 <div class="card">
@@ -520,7 +228,6 @@
                     <ul>
                         <li>Automated claims-scrubbing systems</li>
                         <li>AI-assisted medical coding classification</li>
-                        <li>Predictive baseline cash-flow dashboards</li>
                     </ul>
                 </div>
                 <div class="card">
@@ -529,7 +236,6 @@
                     <ul>
                         <li>Smart real-time bed tracking dashboards</li>
                         <li>AI-assisted appointment/OR scheduling</li>
-                        <li>Automated pharmacy stock alert layers</li>
                     </ul>
                 </div>
             </div>
@@ -538,10 +244,8 @@
 
     <section id="roadmap">
         <div class="container">
-            <div class="text-center">
-                <h2 class="section-title">Module 4 & 5: Strategic Implementation</h2>
-                <p class="section-desc">Phased delivery governed by rigorous hybrid PMI management standards and Agile execution sprints.</p>
-            </div>
+            <h2 class="section-title text-center">Module 4 & 5: Strategic Implementation</h2>
+            <p class="section-desc text-center">Phased delivery governed by rigorous hybrid PMI management standards and Agile execution sprints.</p>
 
             <div class="table-title">🗓️ 3-Stage Implementation Roadmap</div>
             <div class="table-responsive">
@@ -567,33 +271,7 @@
                         <tr>
                             <td><strong>Futuristic Transformation</strong></td>
                             <td>Enterprise (12+ Months)</td>
-                            <td>Full predictive analytics platform execution, complete revenue-cycle AI overhaul, RTLS tracking.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="table-title">🛡️ PMI Governance + Agile Delivery Parameters</div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>PMI Management Stage</th>
-                            <th>Agile Delivery Workstream Execution Overlay</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Initiating & Planning</strong></td>
-                            <td>Project charters aligned to 2-week active backlog sprint item definitions.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Executing & Delivery</strong></td>
-                            <td>Daily standup meetings inside delivery pods; prioritizing quick wins first.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Monitoring & Controlling</strong></td>
-                            <td>Sprint review demos alongside automated live operational performance metric indicators.</td>
+                            <td>Full predictive analytics platform execution, complete revenue-cycle AI overhaul.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -603,22 +281,19 @@
 
     <section id="audit">
         <div class="container">
-            <div class="text-center">
-                <h2 class="section-title">Request a Process Diagnostics Assessment</h2>
-                <p class="section-desc">Provide your operational details below. Form submissions route securely to the inbox for diagnostic analysis.</p>
-            </div>
+            <h2 class="section-title text-center">Request a Process Diagnostics Assessment</h2>
+            <p class="section-desc text-center">Provide operational details below to route directly for diagnostics analysis.</p>
 
             <div class="form-box">
-                <!-- Route your email form processing safely using Formspree -->
                 <form action="https://formspree.io/f/your_formspree_id" method="POST">
                     <div class="form-row">
-                        <div>
+                        <div class="form-group">
                             <label for="name">Client Name</label>
-                            <input type="text" name="Client Name" id="name" required placeholder="e.g., Global Health Clinic Network">
+                            <input type="text" name="Client Name" id="name" required placeholder="Global Health Clinic Network">
                         </div>
-                        <div>
+                        <div class="form-group">
                             <label for="email">Business Email Address</label>
-                            <input type="email" name="Client Email" id="email" required placeholder="e.g., director@facility.org">
+                            <input type="email" name="Client Email" id="email" required placeholder="director@facility.org">
                         </div>
                     </div>
 
@@ -633,17 +308,17 @@
 
                     <div class="form-group">
                         <label for="process_details">Operational Flow & Process Details</label>
-                        <textarea name="Process Details" id="process_details" rows="4" required placeholder="Detail your day-to-day patient intake, channels, or current software workflows..."></textarea>
+                        <textarea name="Process Details" id="process_details" rows="3" required placeholder="Detail your day-to-day patient intake or software workflows..."></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="pain_points">Primary Process Pain Points & Gaps</label>
-                        <textarea name="Pain Points" id="pain_points" rows="4" required placeholder="Specify current delay areas, queue times, manual validation leaks, or claim issues..."></textarea>
+                        <textarea name="Pain Points" id="pain_points" rows="3" required placeholder="Specify current delay areas, queue times, or claim issues..."></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="appointment_details">Target Strategic Appointment Parameters</label>
-                        <input type="text" name="Appointment Details" id="appointment_details" required placeholder="e.g., Next Tuesday or specify alternative preferred slots">
+                        <input type="text" name="Appointment Details" id="appointment_details" required placeholder="e.g., Next Tuesday or specify preferred slots">
                     </div>
 
                     <button type="submit" class="btn-submit">Submit Strategic Audit Request</button>
@@ -652,8 +327,8 @@
         </div>
     </section>
 
-    <footer class="text-center" style="padding: 40px 0; border-top: 1px solid #1e293b; font-size: 0.8rem; color: #475569;">
-        <p>&copy; 2026 Operational Transformation Consulting. Form data processed securely via end-to-end encryption layers.</p>
+    <footer class="text-center" style="padding: 20px 0; border-top: 1px solid #1e293b; font-size: 0.75rem; color: #475569;">
+        <p>&copy; 2026 Operational Transformation Consulting. Form data processed securely via encryption layers.</p>
     </footer>
 
 </body>
