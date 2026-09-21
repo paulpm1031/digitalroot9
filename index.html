@@ -3,38 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operational Transformation Consulting</title>
+    <title>Operational Transformation Strategy | Healthcare Consulting</title>
     <!-- Premium Google Font -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Modern Pure CSS Reset & Dark Styling */
+        /* CSS Reset & Variable Definitions */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #0B0F19;
             color: #cbd5e1;
             line-height: 1.6;
-            padding-bottom: 40px;
         }
+        
+        /* Utility Layout Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .text-center { text-align: center; }
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Header Navigation */
         header {
             background-color: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
-            z-index: 50;
+            z-index: 100;
             border-bottom: 1px solid #1e293b;
         }
         .nav-container {
-            max-w: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
             height: 80px;
             display: flex;
             align-items: center;
@@ -42,51 +62,48 @@
         }
         .logo {
             font-size: 1.25rem;
-            font-weight: 700;
+            font-weight: 800;
             color: #ffffff;
             letter-spacing: -0.025em;
+        }
+        .logo span { color: #34d399; }
+        .nav-links {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 32px;
         }
-        .logo span {
-            color: #34d399;
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
         }
+        .nav-links a:hover { color: #ffffff; }
         .btn-small {
             background-color: #10b981;
             color: #020617;
             padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.875rem;
             transition: background 0.2s;
         }
-        .btn-small:hover {
-            background-color: #34d399;
-        }
+        .btn-small:hover { background-color: #34d399; }
 
         /* Hero Section */
         .hero {
             position: relative;
-            padding: 100px 24px 80px 24px;
-            text-align: center;
-            max-width: 1000px;
+            padding: 120px 0 80px 0;
+            overflow: hidden;
+        }
+        .hero-content {
+            max-width: 900px;
             margin: 0 auto;
         }
-        .badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            background-color: rgba(16, 185, 129, 0.1);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            margin-bottom: 24px;
-        }
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: #ffffff;
             line-height: 1.15;
@@ -99,99 +116,99 @@
             -webkit-text-fill-color: transparent;
         }
         .hero p {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             color: #94a3b8;
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-        }
-        .cta-group {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 48px;
+            margin-bottom: 40px;
+            font-weight: 400;
         }
         .btn-primary {
             background-color: #10b981;
             color: #020617;
-            padding: 16px 32px;
+            padding: 16px 36px;
             border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+            transition: background 0.2s;
         }
-        .btn-primary:hover {
-            background-color: #34d399;
+        .btn-primary:hover { background-color: #34d399; }
+        
+        /* General Sections Styling */
+        section {
+            padding: 90px 0;
+            border-top: 1px solid #1e293b;
         }
-        .btn-secondary {
-            border: 1px solid #1e293b;
-            background-color: rgba(30, 41, 59, 0.3);
-            color: #ffffff;
-            padding: 16px 32px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-        .btn-secondary:hover {
-            background-color: rgba(30, 41, 59, 0.6);
-        }
-
-        /* Hero Image Container Styling */
-        .hero-media-wrapper {
-            max-w: 800px;
-            margin: 0 auto;
-            border-radius: 16px;
-            border: 1px solid rgba(30, 41, 59, 0.6);
-            padding: 6px;
-            background-color: rgba(15, 23, 42, 0.2);
-        }
-        .hero-img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            display: block;
-        }
-
-        /* Grid Section */
-        .section-framework {
-            padding: 80px 24px;
-            max-width: 1200px;
-            margin: 0 auto;
-            border-top: 1px solid #111827;
-        }
-        .section-header {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 60px auto;
-        }
-        .section-header h2 {
+        .section-title {
             font-size: 2.25rem;
+            font-weight: 700;
             color: #ffffff;
             margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
-        .section-header p {
+        .section-desc {
             color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+            font-size: 1rem;
         }
-        .grid {
+
+        /* Module 1: Boundary Scoping Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 40px;
+            border-radius: 16px;
+            border: 1px solid #1e293b;
+            background-color: rgba(15, 23, 42, 0.2);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 16px 24px;
+            border-bottom: 1px solid #1e293b;
+        }
+        th {
+            background-color: #0f172a;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        tr:last-child td { border-bottom: none; }
+        .table-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Module 2 & 3: Functional Grids */
+        .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 32px;
         }
         .card {
-            padding: 32px;
+            padding: 36px;
             border-radius: 16px;
-            border: 1px solid rgba(30, 41, 59, 0.8);
+            border: 1px solid #1e293b;
             background-color: rgba(15, 23, 42, 0.3);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
         .card:hover {
-            border-color: rgba(148, 163, 184, 0.3);
+            border-color: rgba(52, 211, 153, 0.3);
+            transform: translateY(-2px);
         }
         .card-num {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
             background-color: rgba(16, 185, 129, 0.1);
             color: #34d399;
             font-weight: 700;
@@ -206,22 +223,36 @@
             margin-bottom: 12px;
         }
         .card p {
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             color: #94a3b8;
+            margin-bottom: 12px;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card ul li {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .card ul li::before {
+            content: "•";
+            color: #10b981;
+            font-weight: bold;
         }
 
-        /* Form Section */
-        .section-form {
-            padding: 80px 24px;
+        /* Forms Elements */
+        .form-box {
+            background-color: rgba(15, 23, 42, 0.4);
+            padding: 48px;
+            border-radius: 24px;
+            border: 1px solid #1e293b;
             max-width: 800px;
             margin: 0 auto;
-            border-top: 1px solid #111827;
-        }
-        form {
-            background-color: rgba(15, 23, 42, 0.5);
-            padding: 40px;
-            border-radius: 24px;
-            border: 1px solid rgba(30, 41, 59, 0.8);
         }
         .form-row {
             display: grid;
@@ -229,13 +260,7 @@
             gap: 24px;
             margin-bottom: 24px;
         }
-        @media (max-width: 600px) {
-            .form-row { grid-template-columns: 1fr; }
-            h1 { font-size: 2.25rem; }
-        }
-        .form-group {
-            margin-bottom: 24px;
-        }
+        .form-group { margin-bottom: 24px; }
         label {
             display: block;
             font-size: 0.875rem;
@@ -243,7 +268,7 @@
             color: #e2e8f0;
             margin-bottom: 8px;
         }
-        input, textarea {
+        input, textarea, select {
             width: 100%;
             background-color: #020617;
             border: 1px solid #1e293b;
@@ -254,13 +279,11 @@
             font-family: inherit;
             transition: border-color 0.2s;
         }
-        input:focus, textarea:focus {
+        input:focus, textarea:focus, select:focus {
             outline: none;
             border-color: #10b981;
         }
-        textarea {
-            resize: none;
-        }
+        textarea { resize: none; }
         .btn-submit {
             width: 100%;
             background-color: #10b981;
@@ -273,8 +296,13 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-        .btn-submit:hover {
-            background-color: #34d399;
+        .btn-submit:hover { background-color: #34d399; }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -282,45 +310,22 @@
 
     <!-- Header Navigation -->
     <header>
-        <div class="nav-container">
-            <div class="logo">
-                OPS<span>TRANSFORM</span>
-            </div>
-            <a href="#contact" class="btn-small">Book Audit</a>
+        <div class="container nav-container">
+            <div class="logo">OPS<span>TRANSFORM</span></div>
+            <nav class="nav-links">
+                <a href="#scoping">Scope & Metrics</a>
+                <a href="#frameworks">Methodologies</a>
+                <a href="#ai-options">AI Options</a>
+                <a href="#roadmap">Execution Roadmap</a>
+                <a href="#audit" class="btn-small">Book Audit</a>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <span class="badge">Independent Operations Advisory</span>
-        <h1>Stop the Revenue Leaks.<br><span>Accelerate Operational Flow.</span></h1>
-        <p>Helping healthcare organizations systematically eliminate operational delays, optimize patient intake, and securely protect margins eroding from system constraints.</p>
-        <div class="cta-group">
-            <a href="#contact" class="btn-primary">Fix Your Operational Bottlenecks</a>
-            <a href="#methodology" class="btn-secondary">Explore Methodologies</a>
-        </div>
-        
-        <!-- Optimized Emblem Media Section with loading="lazy" -->
-        <div class="hero-media-wrapper">
-            <img src="Emblem_NB.jpg" 
-                 alt="Operational Transformation Strategy Emblem" 
-                 class="hero-img" 
-                 loading="lazy" 
-                 width="800" 
-                 height="450">
-        </div>
-    </section>
-
-    <!-- Frameworks & Methodologies Section -->
-    <section id="methodology" class="section-framework">
-        <div class="section-header">
-            <h2>Engineered Operations Framework</h2>
-            <p>Deploying an agile, hybrid optimization structure rooted in globally proven frameworks to isolate waste and maximize clinical yield.</p>
-        </div>
-
-        <div class="grid">
-            <!-- Card 1 -->
-            <div class="card">
-                <div class="card-num">01</div>
-                <h3>Theory of Constraints (TOC)</h3>
-                <p>Isolating and resolving the definitive "Front Door" intake bottleneck that restricts facility-wide patient throughput and downstream velocity.</p>
+    <section class="hero text-center">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Operational Transformation Strategy</span>
+                <h1>Stop the Revenue Leaks.<br><span>Accelerate Healthcare Operations.</span></h1>
+                <p>Eliminate front-door structural bottlenecks, remove manual processing waste, and capture bottom-line savings through digital systems built for global scale.</p>
