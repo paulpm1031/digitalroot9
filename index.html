@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operational Transformation Strategy | Healthcare Consulting</title>
     <!-- Premium Google Font -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* CSS Reset & Variable Definitions */
@@ -60,13 +60,23 @@
             align-items: center;
             justify-content: space-between;
         }
-        .logo {
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            color: #34d399;
+            display: flex;
+            align-items: center;
+        }
+        .logo-text {
             font-size: 1.25rem;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: -0.025em;
         }
-        .logo span { color: #34d399; }
+        .logo-text span { color: #34d399; }
         .nav-links {
             display: flex;
             align-items: center;
@@ -132,9 +142,27 @@
             display: inline-block;
             box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
             transition: background 0.2s;
+            margin-bottom: 48px;
         }
         .btn-primary:hover { background-color: #34d399; }
         
+        /* Image Center Wrapper Styling */
+        .media-center-wrapper {
+            max-width: 850px;
+            margin: 40px auto 0 auto;
+            border-radius: 16px;
+            border: 1px solid rgba(30, 41, 59, 0.6);
+            padding: 8px;
+            background-color: rgba(15, 23, 42, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .display-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
         /* General Sections Styling */
         section {
             padding: 90px 0;
@@ -311,7 +339,15 @@
     <!-- Header Navigation -->
     <header>
         <div class="container nav-container">
-            <div class="logo">OPS<span>TRANSFORM</span></div>
+            <div class="brand-wrapper">
+                <!-- Premium Geometric Logo Icon Next to Text -->
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <div class="logo-text">DIGITAL<span>ROOT9</span></div>
+            </div>
             <nav class="nav-links">
                 <a href="#scoping">Scope & Metrics</a>
                 <a href="#frameworks">Methodologies</a>
@@ -322,10 +358,303 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero text-center">
         <div class="container">
             <div class="hero-content">
                 <span class="badge">Operational Transformation Strategy</span>
                 <h1>Stop the Revenue Leaks.<br><span>Accelerate Healthcare Operations.</span></h1>
                 <p>Eliminate front-door structural bottlenecks, remove manual processing waste, and capture bottom-line savings through digital systems built for global scale.</p>
+                <a href="#audit" class="btn-primary">Initiate Operational Audit</a>
+                
+                <!-- Replaced Center Container Image with processimprv.png & lazy loading -->
+                <div class="media-center-wrapper">
+                    <img src="processimprv.png" 
+                         alt="Operational Flow Process Diagram Layout" 
+                         class="display-img" 
+                         loading="lazy" 
+                         width="850" 
+                         height="450">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="scoping">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Module 1: Boundary Scoping & Metrics</h2>
+                <p class="section-desc">Establishing fixed parameters and bottom-line target outcomes for scaling capacity and profit protection.</p>
+            </div>
+
+            <div class="table-title">📂 Scope Clarification</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>In Scope</th>
+                            <th>Out of Scope</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Region</strong></td>
+                            <td>Global applicable across facilities adapting for local regulatory nuance.</td>
+                            <td>Region-specific clinical licensing and formal compliance filings.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Facility Size</strong></td>
+                            <td>Small clinics, mid-size multi-specialty centers, large hospital networks.</td>
+                            <td>Greenfield hospital construction and capital real-estate projects.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Functions</strong></td>
+                            <td>Patient onboarding, clinical flow, revenue cycles, supply chain, workforce analytics.</td>
+                            <td>Clinical/medical decision-making, diagnosis, and direct treatment protocols.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Time Horizon</strong></td>
+                            <td>Phased deployments: 0–3 months (diagnostic) up to 12+ months (transformation).</td>
+                            <td>Permanent infrastructure structural engineering.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-title">📈 Core Outcome Targets</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric Type</th>
+                            <th>Target Performance Metric</th>
+                            <th>Example Target Objective</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Financial</strong></td>
+                            <td>Revenue cycle leakage reduction / profit margin protection</td>
+                            <td>Reduce claim denial rate; improve EBITDA margin by 3–5 points.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Process</strong></td>
+                            <td>Patient onboarding turnaround time (TAT)</td>
+                            <td>Cut average onboarding TAT by 30–50% (Registration → First Touch).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Qualitative</strong></td>
+                            <td>Patient experience index & staff burnout indicators</td>
+                            <td>Improve patient NPS by 15 pts; reduce frontline staff attrition by 20%.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="frameworks">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Operational Excellence Frameworks</h2>
+                <p class="section-desc">Integrating Theory of Constraints, Lean operational waste removal, and structural Six Sigma data modeling.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-num">01</div>
+                    <h3>Theory of Constraints (TOC)</h3>
+                    <p>Resolving the single structural bottleneck blocking capacity: the "Front Door" patient registration loop.</p>
+                    <ul>
+                        <li>Eliminates insurance validation delays</li>
+                        <li>Prevents duplicate document entries</li>
+                        <li>Stabilizes entry data errors early</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-num">02</div>
+                    <h3>Lean (8 Wastes Mapped)</h3>
+                    <p>Systematically extracting unneeded resource friction across the standard DOWNTIME spectrum.</p>
+                    <ul>
+                        <li>Defects: Coding/billing input errors</li>
+                        <li>Waiting: Delays on pre-authorization</li>
+                        <li>Over-processing: Re-keying system records</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-num">03</div>
+                    <h3>Six Sigma (DMAIC Pass)</h3>
+                    <p>Targeting turnaround variance to protect the bottom line from unpredictable process extremes.</p>
+                    <ul>
+                        <li>Isolates the root 80/20 drivers of delays</li>
+                        <li>Establishes baseline performance bands</li>
+                        <li>Stabilizes end-to-end processing times</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-options">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Module 3: Digital & AI Transformation</h2>
+                <p class="section-desc">Targeted, automated system deployments designed to accelerate functional flow.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-num">AI</div>
+                    <h3>Front Office & Access</h3>
+                    <ul>
+                        <li>AI-powered intake self-service kiosks</li>
+                        <li>Automated eligibility & e-KYC verification</li>
+                        <li>Demand-forecasting for footfall paths</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-num">AI</div>
+                    <h3>Revenue Cycle & Finance</h3>
+                    <ul>
+                        <li>Automated claims-scrubbing systems</li>
+                        <li>AI-assisted medical coding classification</li>
+                        <li>Predictive baseline cash-flow dashboards</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-num">AI</div>
+                    <h3>Operations & Logistics</h3>
+                    <ul>
+                        <li>Smart real-time bed tracking dashboards</li>
+                        <li>AI-assisted appointment/OR scheduling</li>
+                        <li>Automated pharmacy stock alert layers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Module 4 & 5: Strategic Implementation</h2>
+                <p class="section-desc">Phased delivery governed by rigorous hybrid PMI management standards and Agile execution sprints.</p>
+            </div>
+
+            <div class="table-title">🗓️ 3-Stage Implementation Roadmap</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Timeline</th>
+                            <th>Core Execution Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Diagnostic & Quick Wins</strong></td>
+                            <td>Immediate (0–3 Months)</td>
+                            <td>Pilot intake chatbots, setup core reminder automations, construct claims-denial dashboard v1.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Medium-Term Optimization</strong></td>
+                            <td>Intermediate (3–12 Months)</td>
+                            <td>Deploy smart AI scheduling systems, automate workforce credentialing, scale CRM modules.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Futuristic Transformation</strong></td>
+                            <td>Enterprise (12+ Months)</td>
+                            <td>Full predictive analytics platform execution, complete revenue-cycle AI overhaul, RTLS tracking.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-title">🛡️ PMI Governance + Agile Delivery Parameters</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PMI Management Stage</th>
+                            <th>Agile Delivery Workstream Execution Overlay</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Initiating & Planning</strong></td>
+                            <td>Project charters aligned to 2-week active backlog sprint item definitions.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Executing & Delivery</strong></td>
+                            <td>Daily standup meetings inside delivery pods; prioritizing quick wins first.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Monitoring & Controlling</strong></td>
+                            <td>Sprint review demos alongside automated live operational performance metric indicators.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="audit">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Request a Process Diagnostics Assessment</h2>
+                <p class="section-desc">Provide your operational details below. Form submissions route securely to the inbox for diagnostic analysis.</p>
+            </div>
+
+            <div class="form-box">
+                <!-- Route your email form processing safely using Formspree -->
+                <form action="https://formspree.io/f/your_formspree_id" method="POST">
+                    <div class="form-row">
+                        <div>
+                            <label for="name">Client Name</label>
+                            <input type="text" name="Client Name" id="name" required placeholder="e.g., Global Health Clinic Network">
+                        </div>
+                        <div>
+                            <label for="email">Business Email Address</label>
+                            <input type="email" name="Client Email" id="email" required placeholder="e.g., director@facility.org">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="facility_size">Facility Classification Scale</label>
+                        <select name="Facility Scale" id="facility_size">
+                            <option value="Small Clinic">Small Clinic / Specialized Practice</option>
+                            <option value="Mid-Size Center">Mid-Size Multi-Specialty Center</option>
+                            <option value="Large Hospital Network">Large Hospital System / Network</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="process_details">Operational Flow & Process Details</label>
+                        <textarea name="Process Details" id="process_details" rows="4" required placeholder="Detail your day-to-day patient intake, channels, or current software workflows..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pain_points">Primary Process Pain Points & Gaps</label>
+                        <textarea name="Pain Points" id="pain_points" rows="4" required placeholder="Specify current delay areas, queue times, manual validation leaks, or claim issues..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointment_details">Target Strategic Appointment Parameters</label>
+                        <input type="text" name="Appointment Details" id="appointment_details" required placeholder="e.g., Next Tuesday or specify alternative preferred slots">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Strategic Audit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center" style="padding: 40px 0; border-top: 1px solid #1e293b; font-size: 0.8rem; color: #475569;">
+        <p>&copy; 2026 Operational Transformation Consulting. Form data processed securely via end-to-end encryption layers.</p>
+    </footer>
+
+</body>
+</html>
