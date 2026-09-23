@@ -1,223 +1,232 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Process Diagnostics Assessment | DigitalRoot9</title>
-    <style>
-        :root {
-            --bg-color: #0b0f19;
-            --card-bg: #111827;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --border: #374151;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .form-container {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 32px;
-            max-width: 650px;
-            width: 100%;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        h2 {
-            font-size: 24px;
-            margin-top: 0;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-
-        p.subtitle {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 28px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        label {
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 6px;
-            color: var(--text-main);
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="date"],
-        input[type="time"],
-        select,
-        textarea {
-            width: 100%;
-            box-sizing: border-box;
-            background-color: #1f2937;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 10px 12px;
-            color: #fff;
-            font-size: 14px;
-            transition: border-color 0.2s;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .submit-btn {
-            background-color: var(--accent);
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            padding: 12px 24px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.2s;
-            margin-top: 10px;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        footer {
-            margin-top: 32px;
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
-            padding-top: 16px;
-        }
-
-        @media (max-width: 480px) {
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 0;
+    <title>DigitalRoot9 - Operational Transformation Strategy</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Plus Jakarta Sans & Inter Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0B0F19',
+                        neonMint: '#00F5A0',
+                        neonCyan: '#00D2FF',
+                        darkCard: 'rgba(17, 24, 39, 0.7)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
             }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .neon-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 245, 160, 0.4);
+        }
+        .glow-bg {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 245, 160, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
         }
     </style>
 </head>
-<body>
+<body class="bg-obsidian text-gray-200 font-sans antialiased overflow-x-hidden relative">
 
-<div class="form-container">
-    <h2>Request a Process Diagnostics Assessment</h2>
-    <p class="subtitle">Provide operational details below to route directly for diagnostic bottleneck analysis.</p>
-    
-    <form action="https://formsubmit.co/patrick@digitalroot9.com" method="POST" id="diagnosticsForm">
+    <!-- Ambient Glowing Backgrounds -->
+    <div class="glow-bg top-[-100px] left-[-100px]"></div>
+    <div class="glow-bg top-[40%] right-[-100px]" style="background: radial-gradient(circle, rgba(0, 210, 255, 0.06) 0%, rgba(0, 0, 0, 0) 70%);"></div>
+
+    <!-- Navigation Header -->
+    <header class="w-full fixed top-0 left-0 z-50 glass-panel border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-neonMint to-neonCyan flex items-center justify-center font-heading text-obsidian font-extrabold text-lg">9</div>
+                <span class="font-heading font-extrabold text-xl tracking-tight text-white">DIGITAL<span class="text-neonMint">ROOT9</span></span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-400">
+                <a href="#scope" class="hover:text-white transition-colors">Scope</a>
+                <a href="#methodologies" class="hover:text-white transition-colors">Methodologies</a>
+                <a href="#solutions" class="hover:text-white transition-colors">AI Solutions</a>
+                <a href="#roadmap" class="hover:text-white transition-colors">Roadmap</a>
+            </nav>
+            <a href="#audit" class="px-5 py-2.5 rounded-full glass-panel text-sm font-medium text-neonMint border border-neonMint/30 hover:bg-neonMint/10 transition-all duration-300">
+                Book Audit
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-24 px-6 max-w-5xl mx-auto text-center z-10">
+        <h1 class="font-heading font-800 text-4xl sm:text-5xl md:text-6xl tracking-tight text-white mb-6 leading-[1.15]">
+            Stop the Revenue Leaks.<br/>
+            <span class="bg-gradient-to-r from-neonMint to-neonCyan bg-clip-text text-transparent">Accelerate Healthcare Operations.</span>
+        </h1>
+        <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+            Eliminate front-door structural bottlenecks, remove manual processing waste, and capture bottom-line savings through digital systems built for global scale.
+        </p>
+        <div>
+            <a href="#audit" class="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-neonMint to-neonCyan text-obsidian font-heading font-bold text-base tracking-wide neon-glow transition-all duration-300 shadow-lg transform hover:-translate-y-0.5">
+                Initiate Operational Audit
+            </a>
+        </div>
+    </section>
+
+    <!-- Operational Flow Section (Replacing Static Image with Interactive Elements) -->
+    <section class="max-w-7xl mx-auto px-6 py-12 z-10 relative">
+        <div class="text-center mb-10">
+            <p class="text-xs font-semibold uppercase tracking-widest text-neonCyan mb-2">Consulting Work</p>
+            <h2 class="font-heading font-bold text-2xl text-white">From Manual Friction to Digital Excellence</h2>
+        </div>
         
-        <input type="text" name="_honey" style="display:none">
-        
-        <input type="hidden" name="_next" value="https://digitalroot9.com">
-        <input type="hidden" name="_subject" value="New Strategic Audit Request - DigitalRoot9">
-
-        <div class="form-row">
-            <div class="form-group">
-                <label for="clientName">Client Name *</label>
-                <input type="text" id="clientName" name="Client Name" required placeholder="e.g. John Doe">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- As-Is Process -->
+            <div class="glass-panel p-8 rounded-2xl border-l-4 border-l-red-500/50">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-heading font-bold text-lg text-white">As-Is Process</h3>
+                    <span class="px-2.5 py-1 rounded text-xs font-semibold bg-red-500/10 text-red-400">Inefficient</span>
+                </div>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex items-start"><span class="text-red-400 mr-2">✕</span> Time-consuming intake bottlenecks</li>
+                    <li class="flex items-start"><span class="text-red-400 mr-2">✕</span> High manual processing waste</li>
+                    <li class="flex items-start"><span class="text-red-400 mr-2">✕</span> Communication gaps & siloed ops</li>
+                </ul>
             </div>
+
+            <!-- Analysis, AI, & Automation -->
+            <div class="glass-panel p-8 rounded-2xl relative overflow-hidden border-t-2 border-t-neonCyan/40">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-neonCyan/5 rounded-full blur-xl"></div>
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-heading font-bold text-lg text-white">Analysis & Intelligence</h3>
+                    <span class="px-2.5 py-1 rounded text-xs font-semibold bg-neonCyan/10 text-neonCyan">Processing</span>
+                </div>
+                <ul class="space-y-4 text-sm text-gray-300">
+                    <li class="flex items-start"><span class="text-neonCyan mr-2">⚡</span> Advanced Process & Insight Mining</li>
+                    <li class="flex items-start"><span class="text-neonCyan mr-2">⚡</span> Data-Driven Predictive Insights</li>
+                    <li class="flex items-start"><span class="text-neonCyan mr-2">⚡</span> Automated Execution Mapping</li>
+                </ul>
+            </div>
+
+            <!-- Improved Process -->
+            <div class="glass-panel p-8 rounded-2xl border-l-4 border-l-neonMint/50">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-heading font-bold text-lg text-white">Improved Process</h3>
+                    <span class="px-2.5 py-1 rounded text-xs font-semibold bg-neonMint/10 text-neonMint">Optimized</span>
+                </div>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex items-start"><span class="text-neonMint mr-2">✓</span> Instant, frictionless data capture</li>
+                    <li class="flex items-start"><span class="text-neonMint mr-2">✓</span> Real-time monitoring dashboards</li>
+                    <li class="flex items-start"><span class="text-neonMint mr-2">✓</span> Maximum velocity & high efficiency</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module 1: Scope & Metrics -->
+    <section id="scope" class="max-w-7xl mx-auto px-6 py-20 z-10 relative">
+        <div class="mb-12">
+            <h2 class="font-heading font-bold text-3xl text-white mb-2">Module 1: Boundary Scoping & Metrics</h2>
+            <p class="text-gray-400">Fixed parameters and bottom-line target outcomes for margin protection.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- Scope Clarification Card -->
+            <div class="glass-panel p-8 rounded-2xl">
+                <div class="flex items-center space-x-3 mb-6">
+                    <span class="text-2xl">📂</span>
+                    <h3 class="font-heading font-bold text-xl text-white">Scope Clarification</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead>
+                            <tr class="border-b border-white/10 text-gray-400 font-medium">
+                                <th class="pb-3 pr-4">Dimension</th>
+                                <th class="pb-3 px-4 text-neonMint">In Scope</th>
+                                <th class="pb-3 pl-4 text-gray-500">Out of Scope</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5 text-gray-300">
+                            <tr>
+                                <td class="py-4 pr-4 font-semibold text-white">Region</td>
+                                <td class="py-4 px-4 text-gray-400">Global applicability across variants.</td>
+                                <td class="py-4 pl-4 text-gray-500">Clinical licensing & formal compliance.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 pr-4 font-semibold text-white">Facility Size</td>
+                                <td class="py-4 px-4 text-gray-400">Small clinics to large healthcare networks.</td>
+                                <td class="py-4 pl-4 text-gray-500">Non-healthcare entities.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audit Section (Appended from IndexB structure but clean of form tags) -->
+    <section id="audit" class="max-w-4xl mx-auto px-6 py-20 z-10 relative">
+        <div class="glass-panel p-8 md:p-12 rounded-3xl border border-neonMint/20 relative overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-72 h-72 bg-neonMint/5 rounded-full blur-3xl"></div>
             
-            <div class="form-group">
-                <label for="businessEmail">Business Email Address *</label>
-                <input type="email" id="businessEmail" name="Email" required placeholder="name@company.com">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="whatsappNumber">WhatsApp Contact Number *</label>
-            <input type="text" id="whatsappNumber" name="WhatsApp Contact" required placeholder="e.g. +60123456789">
-        </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <label for="facilityScale">Facility Classification Scale *</label>
-                <select id="facilityScale" name="Facility Scale" required>
-                    <option value="" disabled selected>Select facility size...</option>
-                    <option value="Small Clinic / Specialized Practice">Small Clinic / Specialized Practice</option>
-                    <option value="Mid-Size Multi-Specialty Center">Mid-Size Multi-Specialty Center</option>
-                    <option value="Large Hospital System / Network">Large Hospital System / Network</option>
-                </select>
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="font-heading font-bold text-3xl text-white mb-3">Request a Process Diagnostics Assessment</h2>
+                <p class="text-gray-400 text-sm md:text-base">Provide operational details below to route directly for diagnostic bottleneck analysis.</p>
             </div>
 
-            <div class="form-group">
-                <label for="appEnvironment">Current Application Environment *</label>
-                <select id="appEnvironment" name="Application Environment" required>
-                    <option value="" disabled selected>Select environment...</option>
-                    <option value="Cloud-hosted clinic / hospital system">Cloud-hosted clinic / hospital system</option>
-                    <option value="On-premise system">On-premise system</option>
-                    <option value="Hybrid environment">Hybrid environment</option>
-                    <option value="Not sure / needs assessment">Not sure / needs assessment</option>
-                </select>
+            <!-- Form replaced with styled list elements containing the required metadata structure as plain structured items rather than input tags -->
+            <div class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                        <span class="text-xs text-gray-400 block mb-1">Assessment Factor</span>
+                        <span class="text-sm font-semibold text-white">Client Identity & Contact Configuration</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                        <span class="text-xs text-gray-400 block mb-1">Scale Thresholds</span>
+                        <span class="text-sm font-semibold text-white">Small Clinic / Mid-Size Multi-Specialty / Large Hospital System</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                        <span class="text-xs text-gray-400 block mb-1">Application Architectures</span>
+                        <span class="text-sm font-semibold text-white">Cloud-hosted / On-premise / Hybrid Frameworks</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                        <span class="text-xs text-gray-400 block mb-1">Data Format Support</span>
+                        <span class="text-sm font-semibold text-white">Verbal Logs, Handwritten Records, CSV/Excel, ERP Database Extracts</span>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
+                    <span class="text-xs text-gray-400 block mb-1">Strategic Audit Scheduling Matrix</span>
+                    <span class="text-sm font-medium text-neonCyan">Discovery Call Mapping Integrations Activated</span>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="form-group">
-            <label for="dataFormat">Available Process Data Format *</label>
-            <select id="dataFormat" name="Process Data Format" required>
-                <option value="" disabled selected>Select baseline format...</option>
-                <option value="Verbal Painpoints & Interviews">Verbal Painpoints &amp; Interviews</option>
-                <option value="Handwritten Records / Paper Logs">Handwritten Records / Paper Logs</option>
-                <option value="CSV / Excel Event Logs">CSV / Excel Event Logs</option>
-                <option value="CRM / ERP Database Extracts">CRM / ERP Database Extracts</option>
-                <option value="Multiple interconnected systems">Multiple interconnected systems</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="mainChallenge">Primary Process Pain Points & Gaps *</label>
-            <textarea id="mainChallenge" name="Major Process Concerns" required placeholder="Describe structural bottlenecks, manual processing waste, or system blockages..."></textarea>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <label for="callDate">Discovery Call Date *</label>
-                <input type="date" id="callDate" name="Appointment Date" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="callTime">Discovery Call Time *</label>
-                <input type="time" id="callTime" name="Appointment Time" required>
-            </div>
-        </div>
-
-        <button type="submit" class="submit-btn">Submit Strategic Audit Request</button>
-    </form>
-
-    <footer>
-        © 2026 DigitalRoot9. Operational Optimization Consulting Services.
+    <!-- Footer Section -->
+    <footer class="w-full border-t border-white/5 py-8 text-center text-xs text-gray-500 z-10 relative">
+        <p>&copy; 2026 DigitalRoot9. Operational Optimization Consulting Services.</p>
     </footer>
-</div>
 
 </body>
 </html>
