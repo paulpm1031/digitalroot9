@@ -1,16 +1,226 @@
-<!-- PRODUCTION DEPLOYED SECURE INTAKE FUNNEL -->
-<form action="https://digitalroot9.com" method="POST" id="diagnosticsForm">
-    
-    <!-- Hidden operational config targets parsed automatically by your self-hosted backend -->
-    <input type="hidden" name="project_context" value="Process Mining Strategic Assessment Audits">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Diagnostics Assessment | DigitalRoot9</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --border: #374151;
+        }
 
-    <!-- All of your client data intake rows (name, email, WhatsApp, app environment, pain points) remain exactly the same -->
-    <div class="form-row">
-        <div class="form-group">
-            <label for="clientName">Client Name *</label>
-            <input type="text" id="clientName" name="client_name" required placeholder="e.g. John Doe">
-        </div>
-    </div>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="time"],
+        select,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #1f2937;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 10px 12px;
+            color: #fff;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background-color: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        footer {
+            margin-top: 32px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Request a Process Diagnostics Assessment</h2>
+    <p class="subtitle">Provide operational details below to route directly for diagnostic bottleneck analysis.</p>
     
-    <button type="submit" class="submit-btn">Submit Strategic Audit Request</button>
-</form>
+    <!-- No local server infrastructure required -->
+    <form action="https://formsubmit.co" method="POST" id="diagnosticsForm">
+        
+        <!-- Anti-Spam Captcha security layer -->
+        <input type="text" name="_honey" style="display:none">
+        
+        <!-- Redirect parameters pointing back to your main site space -->
+        <input type="hidden" name="_next" value="https://digitalroot9.com">
+        <input type="hidden" name="_subject" value="New Strategic Audit Request - DigitalRoot9">
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="clientName">Client Name *</label>
+                <input type="text" id="clientName" name="Client Name" required placeholder="e.g. John Doe">
+            </div>
+            
+            <div class="form-group">
+                <label for="businessEmail">Business Email Address *</label>
+                <input type="email" id="businessEmail" name="Email" required placeholder="name@company.com">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="whatsappNumber">WhatsApp Contact Number *</label>
+            <input type="text" id="whatsappNumber" name="WhatsApp Contact" required placeholder="e.g. +60123456789">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="facilityScale">Facility Classification Scale *</label>
+                <select id="facilityScale" name="Facility Scale" required>
+                    <option value="" disabled selected>Select facility size...</option>
+                    <option value="Small Clinic / Specialized Practice">Small Clinic / Specialized Practice</option>
+                    <option value="Mid-Size Multi-Specialty Center">Mid-Size Multi-Specialty Center</option>
+                    <option value="Large Hospital System / Network">Large Hospital System / Network</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="appEnvironment">Current Application Environment *</label>
+                <select id="appEnvironment" name="Application Environment" required>
+                    <option value="" disabled selected>Select environment...</option>
+                    <option value="Cloud-hosted clinic / hospital system">Cloud-hosted clinic / hospital system</option>
+                    <option value="On-premise system">On-premise system</option>
+                    <option value="Hybrid environment">Hybrid environment</option>
+                    <option value="Not sure / needs assessment">Not sure / needs assessment</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dataFormat">Available Process Data Format *</label>
+            <select id="dataFormat" name="Process Data Format" required>
+                <option value="" disabled selected>Select baseline format...</option>
+                <option value="Verbal Painpoints & Interviews">Verbal Painpoints &amp; Interviews</option>
+                <option value="Handwritten Records / Paper Logs">Handwritten Records / Paper Logs</option>
+                <option value="CSV / Excel Event Logs">CSV / Excel Event Logs</option>
+                <option value="CRM / ERP Database Extracts">CRM / ERP Database Extracts</option>
+                <option value="Multiple interconnected systems">Multiple interconnected systems</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="mainChallenge">Primary Process Pain Points & Gaps *</label>
+            <textarea id="mainChallenge" name="Major Process Concerns" required placeholder="Describe structural bottlenecks, manual processing waste, or system blockages..."></textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="callDate">Discovery Call Date *</label>
+                <input type="date" id="callDate" name="Appointment Date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="callTime">Discovery Call Time *</label>
+                <input type="time" id="callTime" name="Appointment Time" required>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Strategic Audit Request</button>
+    </form>
+
+    <footer>
+        © 2026 DigitalRoot9. Operational Optimization Consulting Services.
+    </footer>
+</div>
+
+</body>
+</html>
