@@ -172,69 +172,81 @@
                         Provide operational details below to route directly for diagnostic bottleneck analysis.
                     </p>
                     
-                    <form action="YOUR_WEBHOOK_OR_FORM_ENDPOINT_HERE" method="POST" class="space-y-4">
+                    <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" id="diagnosticsForm" class="space-y-4">
+                        
+                        <!-- ANTI-SPAM: Hidden Honey Pot honeypot field -->
+                        <input type="text" name="_honey" style="display:none">
+                        
+                        <!-- VISUAL BRANDING PARAMETERS GENERATED FOR FORMSUBMIT ENGINE -->
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_theme" value="dark">
+                        
+                        <!-- FUNCTIONAL DIRECTION HEADERS -->
+                        <input type="hidden" name="_next" value="https://digitalroot9.com">
+                        <input type="hidden" name="_subject" value="🚨 NEW STRATEGIC AUDIT INTAKE - DigitalRoot9">
+
                         <div>
-                            <label class="block text-xs font-medium text-zinc-400 mb-1.5">Client Name *</label>
-                            <input type="text" name="client_name" placeholder="John Doe" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                            <label class="block text-xs font-medium text-zinc-400 mb-1.5" for="clientName">Client Name *</label>
+                            <input type="text" id="clientName" name="Client Name" placeholder="e.g. John Doe" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-medium text-zinc-400 mb-1.5">Business Email Address *</label>
-                                <input type="email" name="business_email" placeholder="john@example.com" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                                <label class="block text-xs font-medium text-zinc-400 mb-1.5" for="businessEmail">Business Email Address *</label>
+                                <input type="email" id="businessEmail" name="Email Address" placeholder="name@company.com" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
                             </div>
                             <div>
-                                <label class="block text-xs font-medium text-zinc-400 mb-1.5">WhatsApp Contact Number *</label>
-                                <input type="tel" name="whatsapp_number" placeholder="+60 12-345 6789" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                                <label class="block text-xs font-medium text-zinc-400 mb-1.5" for="whatsappNumber">WhatsApp Contact Number *</label>
+                                <input type="text" id="whatsappNumber" name="WhatsApp Contact" placeholder="e.g. +60123456789" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-medium text-zinc-400 mb-1.5">Facility Classification Scale *</label>
-                            <select name="facility_size" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors appearance-none" required>
+                            <label class="block text-xs font-medium text-zinc-400 mb-1.5" for="facilityScale">Facility Classification Scale *</label>
+                            <select id="facilityScale" name="Facility Scale" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors appearance-none" required>
                                 <option value="" disabled selected>Select facility size...</option>
-                                <option value="small">Small Clinic / Specialized Practice</option>
-                                <option value="mid">Mid-Size Multi-Specialty Center</option>
-                                <option value="large">Large Hospital System / Network</option>
+                                <option value="Small Clinic / Specialized Practice">Small Clinic / Specialized Practice</option>
+                                <option value="Mid-Size Multi-Specialty Center">Mid-Size Multi-Specialty Center</option>
+                                <option value="Large Hospital System / Network">Large Hospital System / Network</option>
                             </select>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-medium text-zinc-400 mb-1.5">Current Application Environment *</label>
-                            <select name="application_environment" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors appearance-none" required>
+                            <label class="block text-xs font-medium text-zinc-400 mb-1.5" for="appEnvironment">Current Application Environment *</label>
+                            <select id="appEnvironment" name="Application Environment" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors appearance-none" required>
                                 <option value="" disabled selected>Select environment...</option>
-                                <option value="cloud">Cloud-hosted clinic / hospital system</option>
-                                <option value="on-prem">On-premise system</option>
-                                <option value="hybrid">Hybrid environment</option>
-                                <option value="unsure">Not sure / needs assessment</option>
+                                <option value="Cloud-hosted clinic / hospital system">Cloud-hosted clinic / hospital system</option>
+                                <option value="On-premise system">On-premise system</option>
+                                <option value="Hybrid environment">Hybrid environment</option>
+                                <option value="Not sure / needs assessment">Not sure / needs assessment</option>
                             </select>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-medium text-zinc-400 mb-1.5">Available Process Data Format *</label>
-                            <select name="data_format" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors appearance-none" required>
+                            <label class="block text-xs font-medium text-zinc-400 mb-1.5" for="dataFormat">Available Process Data Format *</label>
+                            <select id="dataFormat" name="Process Data Format" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors appearance-none" required>
                                 <option value="" disabled selected>Select baseline format...</option>
-                                <option value="verbal">Verbal Painpoints & Interviews</option>
-                                <option value="handwritten">Handwritten Records / Paper Logs</option>
-                                <option value="csv">CSV / Excel Event Logs</option>
-                                <option value="crm">CRM / ERP Database Extracts</option>
-                                <option value="multiple">Multiple interconnected systems</option>
+                                <option value="Verbal Painpoints & Interviews">Verbal Painpoints &amp; Interviews</option>
+                                <option value="Handwritten Records / Paper Logs">Handwritten Records / Paper Logs</option>
+                                <option value="CSV / Excel Event Logs">CSV / Excel Event Logs</option>
+                                <option value="CRM / ERP Database Extracts">CRM / ERP Database Extracts</option>
+                                <option value="Multiple interconnected systems">Multiple interconnected systems</option>
                             </select>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-medium text-zinc-400 mb-1.5">Primary Process Pain Points & Gaps *</label>
-                            <textarea name="pain_points" rows="3" placeholder="Briefly describe the operational bottlenecks..." class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors resize-none" required></textarea>
+                            <label class="block text-xs font-medium text-zinc-400 mb-1.5" for="mainChallenge">Primary Process Pain Points & Gaps *</label>
+                            <textarea id="mainChallenge" name="Major Process Concerns" rows="3" placeholder="Describe structural bottlenecks, manual processing waste, or system blockages..." class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors resize-none" required></textarea>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-medium text-zinc-400 mb-1.5">Discovery Call Date *</label>
-                                <input type="date" name="call_date" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                                <label class="block text-xs font-medium text-zinc-400 mb-1.5" for="callDate">Discovery Call Date *</label>
+                                <input type="date" id="callDate" name="Requested Appointment Date" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
                             </div>
                             <div>
-                                <label class="block text-xs font-medium text-zinc-400 mb-1.5">Discovery Call Time *</label>
-                                <input type="time" name="call_time" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                                <label class="block text-xs font-medium text-zinc-400 mb-1.5" for="callTime">Discovery Call Time *</label>
+                                <input type="time" id="callTime" name="Requested Appointment Time" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
                             </div>
                         </div>
 
