@@ -55,7 +55,6 @@
 
     <!-- Hero Section -->
     <section class="relative pt-40 pb-20 md:pt-52 md:pb-32 px-6 overflow-hidden">
-        <!-- Background Glow -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-900/20 rounded-full blur-[120px] -z-10"></div>
         
         <div class="max-w-4xl mx-auto text-center">
@@ -79,40 +78,28 @@
     <section class="py-24 bg-zinc-900 border-y border-zinc-800 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Card 1 -->
                 <div class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 hover:border-brand-500/50 transition-colors group">
                     <div class="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">⏳</div>
                     <h3 class="text-xl font-bold text-white mb-3">The Manual Overhead Trap</h3>
-                    <p class="text-zinc-400 leading-relaxed">
-                        Average consultants sell you expensive recurring software. Elite operations use common sense and tailored logic to cut waste.
-                    </p>
+                    <p class="text-zinc-400 leading-relaxed">Average consultants sell you expensive recurring software. Elite operations use common sense and tailored logic to cut waste.</p>
                 </div>
                 
-                <!-- Card 2 -->
                 <div class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 hover:border-brand-500/50 transition-colors group">
                     <div class="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">📥</div>
                     <h3 class="text-xl font-bold text-white mb-3">Queue Friction</h3>
-                    <p class="text-zinc-400 leading-relaxed">
-                        Staff spending peak hours wrestling with physical cards and manual spreadsheet logs instead of actually caring for clients.
-                    </p>
+                    <p class="text-zinc-400 leading-relaxed">Staff spending peak hours wrestling with physical cards and manual spreadsheet logs instead of actually caring for clients.</p>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 hover:border-brand-500/50 transition-colors group">
                     <div class="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">📉</div>
                     <h3 class="text-xl font-bold text-white mb-3">Dropped Bookings</h3>
-                    <p class="text-zinc-400 leading-relaxed">
-                        Unanswered incoming inquiries sitting dead on WhatsApp groups. Every unlogged message is lost top-line revenue.
-                    </p>
+                    <p class="text-zinc-400 leading-relaxed">Unanswered incoming inquiries sitting dead on WhatsApp groups. Every unlogged message is lost top-line revenue.</p>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 hover:border-brand-500/50 transition-colors group">
                     <div class="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">🇲🇾</div>
                     <h3 class="text-xl font-bold text-white mb-3">LHDN Compliance Stress</h3>
-                    <p class="text-zinc-400 leading-relaxed">
-                        Data chaos at the front desk bottlenecking workflows as mandatory e-invoicing mandates roll out aggressively across Malaysia.
-                    </p>
+                    <p class="text-zinc-400 leading-relaxed">Data chaos at the front desk bottlenecking workflows as mandatory e-invoicing mandates roll out aggressively across Malaysia.</p>
                 </div>
             </div>
         </div>
@@ -127,7 +114,6 @@
             </div>
 
             <div class="space-y-12">
-                <!-- Step 1 -->
                 <div class="relative flex flex-col md:flex-row gap-8 items-start">
                     <div class="hidden md:flex flex-col items-center mt-2">
                         <div class="w-10 h-10 rounded-full bg-brand-500/20 border-2 border-brand-500 flex items-center justify-center text-brand-500 font-bold z-10">1</div>
@@ -140,7 +126,6 @@
                     </div>
                 </div>
 
-                <!-- Step 2 -->
                 <div class="relative flex flex-col md:flex-row gap-8 items-start">
                     <div class="hidden md:flex flex-col items-center mt-2">
                         <div class="w-10 h-10 rounded-full bg-zinc-800 border-2 border-zinc-700 flex items-center justify-center text-zinc-400 font-bold z-10">2</div>
@@ -153,7 +138,6 @@
                     </div>
                 </div>
 
-                <!-- Step 3 -->
                 <div class="relative flex flex-col md:flex-row gap-8 items-start">
                     <div class="hidden md:flex flex-col items-center mt-2">
                         <div class="w-10 h-10 rounded-full bg-zinc-800 border-2 border-zinc-700 flex items-center justify-center text-zinc-400 font-bold z-10">3</div>
@@ -172,7 +156,6 @@
     <section id="audit" class="py-24 bg-zinc-900 border-t border-zinc-800 px-6">
         <div class="max-w-3xl mx-auto">
             <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
-                <!-- Decorative element -->
                 <div class="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-[80px]"></div>
 
                 <div class="relative z-10">
@@ -182,26 +165,27 @@
                         Provide operational details below to route directly for diagnostic bottleneck analysis.
                     </p>
                     
-                    <form class="space-y-6">
+                    <!-- Added Action, Method, and Name Attributes Below -->
+                    <form action="YOUR_WEBHOOK_OR_FORM_ENDPOINT_HERE" method="POST" class="space-y-6">
                         <div>
                             <label class="block text-sm font-medium text-zinc-400 mb-2">Client Name *</label>
-                            <input type="text" placeholder="John Doe" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                            <input type="text" name="client_name" placeholder="John Doe" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-zinc-400 mb-2">Business Email Address *</label>
-                                <input type="email" placeholder="john@example.com" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                                <input type="email" name="business_email" placeholder="john@example.com" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-zinc-400 mb-2">WhatsApp Contact Number *</label>
-                                <input type="tel" placeholder="+60 12-345 6789" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                                <input type="tel" name="whatsapp_number" placeholder="+60 12-345 6789" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-sm font-medium text-zinc-400 mb-2">Facility Classification Scale *</label>
-                            <select class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors appearance-none" required>
+                            <select name="facility_size" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors appearance-none" required>
                                 <option value="" disabled selected>Select facility size...</option>
                                 <option value="small">Small Clinic / Specialized Practice</option>
                                 <option value="mid">Mid-Size Multi-Specialty Center</option>
@@ -211,7 +195,7 @@
 
                         <div>
                             <label class="block text-sm font-medium text-zinc-400 mb-2">Current Application Environment *</label>
-                            <select class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors appearance-none" required>
+                            <select name="application_environment" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors appearance-none" required>
                                 <option value="" disabled selected>Select environment...</option>
                                 <option value="cloud">Cloud-hosted clinic / hospital system</option>
                                 <option value="on-prem">On-premise system</option>
@@ -222,7 +206,7 @@
 
                         <div>
                             <label class="block text-sm font-medium text-zinc-400 mb-2">Available Process Data Format *</label>
-                            <select class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors appearance-none" required>
+                            <select name="data_format" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors appearance-none" required>
                                 <option value="" disabled selected>Select baseline format...</option>
                                 <option value="verbal">Verbal Painpoints & Interviews</option>
                                 <option value="handwritten">Handwritten Records / Paper Logs</option>
@@ -234,17 +218,17 @@
 
                         <div>
                             <label class="block text-sm font-medium text-zinc-400 mb-2">Primary Process Pain Points & Gaps *</label>
-                            <textarea rows="4" placeholder="Briefly describe the operational bottlenecks..." class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors resize-none" required></textarea>
+                            <textarea name="pain_points" rows="4" placeholder="Briefly describe the operational bottlenecks..." class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors resize-none" required></textarea>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-zinc-400 mb-2">Discovery Call Date *</label>
-                                <input type="date" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                                <input type="date" name="call_date" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-zinc-400 mb-2">Discovery Call Time *</label>
-                                <input type="time" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
+                                <input type="time" name="call_time" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" required>
                             </div>
                         </div>
 
