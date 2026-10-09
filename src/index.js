@@ -50,12 +50,12 @@ async function handleEnquiryForm(request) {
     ["Submitted date & time", submittedAt],
     ["Name", enquiry.name],
     ["Organisation", enquiry.organisation],
-    ["Business type", enquiry.environment],
+    ["Industry", enquiry.environment],
     ["Phone / WhatsApp", enquiry.whatsapp],
     ["Business email", display(enquiry.email)],
     ["Preferred call date", display(enquiry.preferredDate)],
     ["Preferred call time", display(enquiry.preferredTime)],
-    ["Opportunity / challenge", display(enquiry.challenge)]
+    ["What they would like to improve", display(enquiry.challenge)]
   ];
   const plainText = rows.map(([label, text]) => `${label}: ${text}`).join("\n");
   const htmlRows = rows.map(([label, text]) => `<tr><td style="width:38%;padding:12px;border:1px solid #d9e2de;font-weight:700;vertical-align:top;">${escapeHtml(label)}</td><td style="padding:12px;border:1px solid #d9e2de;">${escapeHtml(text)}</td></tr>`).join("");
@@ -67,10 +67,10 @@ async function handleEnquiryForm(request) {
   const emailPayload = {
     personalizations: [{ to: recipients }],
     from: { email: "no-reply@digitalroot9.paulpm1031.workers.dev", name: "DigitalRoot9 Website" },
-    subject: "New DigitalRoot9 Strategy Call Request",
+    subject: "New DigitalRoot9 Business Growth Enquiry",
     content: [
-      { type: "text/plain", value: `NEW DIGITALROOT9 STRATEGY CALL REQUEST\n\n${plainText}\n\nSource: DigitalRoot9 Website` },
-      { type: "text/html", value: `<div style="font-family:Arial,sans-serif;max-width:650px;color:#17272d;"><h2 style="margin:0 0 16px;">New DigitalRoot9 Strategy Call Request</h2><table style="width:100%;border-collapse:collapse;">${htmlRows}</table><p style="margin-top:18px;color:#617078;">Source: DigitalRoot9 Website</p></div>` }
+      { type: "text/plain", value: `NEW DIGITALROOT9 BUSINESS GROWTH ENQUIRY\n\n${plainText}\n\nSource: DigitalRoot9 Website` },
+      { type: "text/html", value: `<div style="font-family:Arial,sans-serif;max-width:650px;color:#17272d;"><h2 style="margin:0 0 16px;">New DigitalRoot9 Business Growth Enquiry</h2><table style="width:100%;border-collapse:collapse;">${htmlRows}</table><p style="margin-top:18px;color:#617078;">Source: DigitalRoot9 Website</p></div>` }
     ]
   };
 
