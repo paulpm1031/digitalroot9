@@ -3,14 +3,14 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === "/api/enquiry" && request.method === "POST") {
-      return handleEnquiryForm(request);
+      return handleEnquiryForm(request, env);
     }
 
     return env.ASSETS.fetch(request);
   }
 };
 
-async function handleEnquiryForm(request) {
+async function handleEnquiryForm(request, env) {
   const formData = await request.formData();
   const value = (field) => String(formData.get(field) || "").trim();
 
@@ -77,35 +77,26 @@ async function handleEnquiryForm(request) {
   const plainText = rows.map(([label, text]) => `${label}: ${text}`).join("\n");
   const htmlRows = rows.map(([label, text]) => `<tr><td style="width:38%;padding:12px;border:1px solid #d9e2de;font-weight:700;vertical-align:top;">${escapeHtml(label)}</td><td style="padding:12px;border:1px solid #d9e2de;">${escapeHtml(text)}</td></tr>`).join("");
 
-  const recipients = [
-    { email: "Patrick@digitalroot9.com", name: "DigitalRoot9 Enquiries" },
-    { email: "paulpm1031@gmail.com", name: "DigitalRoot9 Personal Copy" }
-  ];
-  const emailPayload = {
-    personalizations: [{ to: recipients }],
-    from: { email: "no-reply@digitalroot9.paulpm1031.workers.dev", name: "DigitalRoot9 Website" },
-    subject: "New DigitalRoot9 AI & Process Improvement Enquiry",
-    content: [
-      { type: "text/plain", value: `NEW DIGITALROOT9 AI & PROCESS IMPROVEMENT ENQUIRY\n\n${plainText}\n\nSource: DigitalRoot9 Website` },
-      { type: "text/html", value: `<div style="font-family:Arial,sans-serif;max-width:650px;color:#17272d;"><h2 style="margin:0 0 16px;">New DigitalRoot9 AI &amp; Process Improvement Enquiry</h2><table style="width:100%;border-collapse:collapse;">${htmlRows}</table><p style="margin-top:18px;color:#617078;">Source: DigitalRoot9 Website</p></div>` }
-    ]
-  };
-
-  const response = await fetch("https://api.mailchannels.net/tx/v1/send", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(emailPayload)
-  });
-
-  if (!response.ok) {
-    console.log("MailChannels email error:", await response.text());
-    return new Response("Your request could not be sent. Please try again later.", {
-      status: 500,
-      headers: { "Content-Type": "text/plain; charset=UTF-8" }
-    });
-  }
-
   const whatsappUrl = new URL("https://wa.me/60123991031");
   whatsappUrl.searchParams.set("text", `New DigitalRoot9 business enquiry\n\n${plainText}`);
+
+  try {
+    await env.EMAIL.send({
+      to: "patrick@digitalroot9.com",
+      from: "enquiries@digitalroot9.com",
+      subject: "New DigitalRoot9 AI & Process Improvement Enquiry",
+      text: `NEW DIGITALROOT9 AI & PROCESS IMPROVEMENT ENQUIRY\n\n${plainText}\n\nSource: DigitalRoot9 Website`,
+      html: `<div style="font-family:Arial,sans-serif;max-width:650px;color:#17272d;"><h2 style="margin:0 0 16px;">New DigitalRoot9 AI &amp; Process Improvement Enquiry</h2><table style="width:100%;border-collapse:collapse;">${htmlRows}</table><p style="margin-top:18px;color:#617078;">Source: DigitalRoot9 Website</p></div>`
+    });
+  } catch (error) {
+    const errorCode = error && typeof error === "object" && "code" in error ? String(error.code) : "unknown";
+    console.error("Cloudflare Email Service delivery failed:", errorCode);
+    const whatsappLink = escapeHtml(whatsappUrl.toString());
+    return new Response(
+      `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Email unavailable | DigitalRoot9</title><body style="margin:0;padding:32px;background:#121212;color:#e0e0e0;font:16px/1.6 system-ui,sans-serif"><main style="max-width:620px;margin:10vh auto;padding:32px;border:1px solid #444;border-radius:12px;background:#1a1a1a"><p style="color:#a0a0a0">Your enquiry could not be emailed automatically.</p><h1 style="font-size:1.7rem">Please send it to us on WhatsApp</h1><p>Your enquiry details are ready in WhatsApp. Review the message and tap Send to complete your submission.</p><a href="${whatsappLink}" style="display:inline-block;margin-top:12px;padding:12px 18px;border-radius:5px;background:#81c784;color:#121212;text-decoration:none;font-weight:700">Continue to WhatsApp</a></main></body></html>`,
+      { status: 502, headers: { "Content-Type": "text/html; charset=UTF-8" } }
+    );
+  }
+
   return Response.redirect(whatsappUrl, 303);
 }
