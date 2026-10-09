@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#121212">
-  <meta name="description" content="DigitalRoot9 helps small businesses and hospitality brands work smarter with operational efficiency, intelligent marketing, and practical AI automation.">
-  <title>DigitalRoot9 | Smarter Operations. Stronger Growth.</title>
+  <meta name="description" content="DigitalRoot9 helps ambitious teams improve processes, apply AI responsibly, and automate routine work with practical consulting and ready-to-adapt playbooks.">
+  <title>DigitalRoot9 | AI & Process Improvement Consulting</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -185,6 +185,25 @@
     .service-card p { margin-top: 10px; color: var(--muted); font-size: .9rem; }
     .service-tag { display: inline-block; margin-top: 22px; color: var(--muted); font-size: .69rem; letter-spacing: .05em; }
 
+    .playbooks { border-block: 1px solid var(--line); background: rgba(26, 26, 26, .72); }
+    .playbook-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 42px; }
+    .playbook-card { overflow: hidden; border: 1px solid var(--line); border-radius: 9px; background: #171717; }
+    .playbook-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 19px; border-bottom: 1px solid var(--line); }
+    .playbook-kind { color: var(--ice-blue); font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .playbook-code { color: var(--soft); font: 600 .68rem var(--font-display); }
+    .playbook-body { padding: 20px; }
+    .playbook-body h3 { font-size: 1.2rem; letter-spacing: -.03em; }
+    .playbook-body > p { min-height: 3.2em; margin-top: 9px; color: var(--muted); font-size: .86rem; }
+    .flow-steps { display: grid; gap: 0; margin-top: 20px; }
+    .flow-step { position: relative; display: grid; grid-template-columns: 25px 1fr; gap: 10px; padding-bottom: 15px; }
+    .flow-step:last-child { padding-bottom: 0; }
+    .flow-step:not(:last-child)::after { position: absolute; top: 21px; bottom: 0; left: 10px; width: 1px; background: rgba(100, 181, 246, .3); content: ""; }
+    .flow-step > span { position: relative; z-index: 1; width: 21px; height: 21px; display: grid; place-items: center; border: 1px solid rgba(100, 181, 246, .4); border-radius: 50%; background: #171717; color: var(--ice-blue); font: 600 .63rem var(--font-display); }
+    .flow-step strong { display: block; color: var(--text); font-size: .78rem; font-weight: 600; }
+    .flow-step small { display: block; margin-top: 2px; color: var(--soft); font-size: .72rem; }
+    .playbook-outcome { margin-top: 19px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--mint); font-size: .74rem; font-weight: 600; }
+    .playbook-note { margin-top: 21px; color: var(--soft); font-size: .76rem; }
+
     .method-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: start; gap: 90px; }
     .method-intro { max-width: 470px; }
     .method-intro p { margin-top: 19px; color: var(--muted); }
@@ -244,6 +263,7 @@
       .hero-copy { max-width: 690px; }
       .engine { max-width: 590px; }
       .problem, .method-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .playbook-grid { grid-template-columns: 1fr 1fr; }
       .problem .section-heading, .contact-copy { position: static; }
     }
     @media (max-width: 680px) {
@@ -262,7 +282,7 @@
       .trust-items { justify-content: flex-start; }
       .section { padding: 74px 0; }
       .audience { padding-top: 0; }
-      .service-grid, .audience-panel { grid-template-columns: 1fr; }
+      .service-grid, .audience-panel, .playbook-grid { grid-template-columns: 1fr; }
       .service-card { min-height: 0; }
       .service-symbol { margin-top: 20px; }
       .service-card h3 { margin-top: 15px; }
@@ -284,9 +304,9 @@
         <span>DigitalRoot9</span>
       </a>
       <div class="nav-links">
-        <a href="#services">What we do</a>
-        <a href="#approach">Our approach</a>
-        <a href="#who-we-help">Who we help</a>
+        <a href="#services">Consulting</a>
+        <a href="#playbooks">Automation playbooks</a>
+        <a href="#approach">How we work</a>
       </div>
       <a class="button button-primary" href="#contact">Let’s talk <span class="arrow" aria-hidden="true">↗</span></a>
     </nav>
@@ -296,51 +316,51 @@
     <section class="hero" id="top">
       <div class="shell hero-grid">
         <div>
-          <div class="eyebrow">Digital operations · AI · growth</div>
-          <h1>Make your next move your <span>smartest one.</span></h1>
-          <p class="hero-copy">We help small-scale industries and hospitality brands thrive in the digital age—with targeted operational efficiency, intelligent marketing, and cutting-edge AI automation.</p>
+          <div class="eyebrow">Independent consulting · AI · operations</div>
+          <h1>Make better work happen with <span>AI and process improvement.</span></h1>
+          <p class="hero-copy">DigitalRoot9 helps ambitious small businesses and hospitality teams find operational friction, redesign the work, and apply AI automation where it creates measurable value.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#contact">Build a smarter business <span class="arrow" aria-hidden="true">↗</span></a>
-            <a class="button button-quiet" href="#services">Explore what we do</a>
+            <a class="button button-primary" href="#contact">Discuss your opportunity <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="button button-quiet" href="#playbooks">Explore the playbooks</a>
           </div>
-          <p class="hero-note">Practical change for the way your business actually works.</p>
+          <p class="hero-note">Practical advisory and implementation. Built around your people, processes, and goals.</p>
         </div>
         <aside class="engine" aria-label="DigitalRoot9's connected growth approach">
           <div class="engine-top">
-            <span class="engine-title">A better way to work</span>
-            <span class="live">BUILT AROUND YOUR BUSINESS</span>
+            <span class="engine-title">From friction to measurable improvement</span>
+            <span class="live">CONSULTING FRAMEWORK</span>
           </div>
           <div class="engine-flow">
             <div class="flow-card">
               <span class="flow-icon" aria-hidden="true">01</span>
-              <span><strong>Operations</strong><small>Less friction in daily work</small></span>
-              <span class="flow-status">SIMPLIFY</span>
+              <span><strong>Understand</strong><small>Map the process and its pain points</small></span>
+              <span class="flow-status">DISCOVER</span>
             </div>
             <div class="flow-card">
               <span class="flow-icon" aria-hidden="true">02</span>
-              <span><strong>Marketing</strong><small>More relevant customer journeys</small></span>
-              <span class="flow-status">CONNECT</span>
+              <span><strong>Improve</strong><small>Redesign work around better outcomes</small></span>
+              <span class="flow-status">OPTIMISE</span>
             </div>
             <div class="flow-card">
               <span class="flow-icon" aria-hidden="true">03</span>
-              <span><strong>AI automation</strong><small>Time back for your people</small></span>
-              <span class="flow-status">AMPLIFY</span>
+              <span><strong>Automate</strong><small>Apply AI with human oversight</small></span>
+              <span class="flow-status">ENABLE</span>
             </div>
           </div>
           <div class="signal-bar" aria-hidden="true"><span></span></div>
-          <div class="engine-foot"><span>One practical step at a time</span><b>YOUR BUSINESS, MOVING FORWARD</b></div>
+          <div class="engine-foot"><span>Designed for adoption and scale</span><b>OUTCOMES BEFORE TOOLS</b></div>
         </aside>
       </div>
     </section>
 
     <div class="trust" aria-label="Areas of focus">
       <div class="shell trust-inner">
-        <span class="trust-label">Made for ambitious teams</span>
+        <span class="trust-label">Focused on practical transformation</span>
         <div class="trust-items">
-          <span>Small businesses</span>
-          <span>Hospitality brands</span>
-          <span>Growing operators</span>
-          <span>Lean teams</span>
+          <span>Process improvement</span>
+          <span>AI enablement</span>
+          <span>Workflow automation</span>
+          <span>Change adoption</span>
         </div>
       </div>
     </div>
@@ -348,13 +368,13 @@
     <section class="section" id="why">
       <div class="shell problem">
         <div class="section-heading">
-          <div class="eyebrow">The opportunity</div>
-          <h2>Growth shouldn’t mean more busywork.</h2>
+          <div class="eyebrow">The consulting challenge</div>
+          <h2>Technology only helps when the work gets better.</h2>
         </div>
         <div class="problem-copy">
-          <p>When a business grows, the cracks start to show: manual processes eat into the day, marketing feels disconnected, and useful technology becomes one more thing to manage.</p>
-          <p>You don’t need a bigger stack of tools. You need the right improvements, connected to the way your people serve customers and get work done.</p>
-          <div class="problem-callout">We turn everyday friction into focused, achievable improvements—so your team can spend more time on the work that moves the business forward.</div>
+          <p>Disconnected handoffs, duplicate data entry, unclear procedures, and repetitive admin quietly drain capacity. Adding another platform or AI tool rarely fixes the underlying process.</p>
+          <p>We start with the work itself: understand what happens today, identify the constraint, and decide whether the answer is a better process, automation, AI, or a combination.</p>
+          <div class="problem-callout">The objective is not more technology. It is simpler work, better decisions, and improvements your team can sustain.</div>
         </div>
       </div>
     </section>
@@ -362,55 +382,120 @@
     <section class="section services" id="services">
       <div class="shell">
         <div class="section-heading">
-          <div class="eyebrow">What we do</div>
-          <h2>Three levers. One stronger business.</h2>
-          <p>We bring operations, marketing, and automation together around your goals—not technology for technology’s sake.</p>
+          <div class="eyebrow">Consulting services</div>
+          <h2>From operational problem to implemented improvement.</h2>
+          <p>Structured consulting that links process design, responsible AI, and automation to the outcomes your business needs.</p>
         </div>
         <div class="service-grid">
           <article class="service-card">
-            <span class="service-number">01 / OPERATIONS</span>
+            <span class="service-number">01 / PROCESS IMPROVEMENT</span>
             <div class="service-symbol" aria-hidden="true">↗</div>
-            <h3>Make work flow better.</h3>
-            <p>Find the bottlenecks, simplify the handoffs, and improve the processes that shape your costs, service, and team capacity.</p>
-            <span class="service-tag">EFFICIENCY · WORKFLOWS · SYSTEMS</span>
+            <h3>Improve the process before adding tools.</h3>
+            <p>Map current-state workflows, clarify ownership, remove avoidable steps, and design practical future-state processes.</p>
+            <span class="service-tag">PROCESS MAPPING · STANDARD WORK · KPIS</span>
           </article>
           <article class="service-card">
-            <span class="service-number">02 / MARKETING</span>
+            <span class="service-number">02 / AI ENABLEMENT</span>
             <div class="service-symbol" aria-hidden="true">◎</div>
-            <h3>Make every message matter.</h3>
-            <p>Connect customer insight, useful content, and the right digital channels to make your intelligent marketing more relevant and consistent.</p>
-            <span class="service-tag">CUSTOMER JOURNEYS · CAMPAIGNS · INSIGHT</span>
+            <h3>Apply AI to work that matters.</h3>
+            <p>Identify high-value use cases, shape safe human-in-the-loop workflows, and guide teams from pilot to everyday adoption.</p>
+            <span class="service-tag">USE-CASE DISCOVERY · GOVERNANCE · ADOPTION</span>
           </article>
           <article class="service-card">
-            <span class="service-number">03 / AI AUTOMATION</span>
+            <span class="service-number">03 / WORKFLOW AUTOMATION</span>
             <div class="service-symbol" aria-hidden="true">✳</div>
-            <h3>Put AI to work on real tasks.</h3>
-            <p>Automate repetitive work and support better decisions with practical AI—introduced thoughtfully, with your team in mind.</p>
-            <span class="service-tag">AI · AUTOMATION · ADOPTION</span>
+            <h3>Connect the steps and systems.</h3>
+            <p>Automate routine handoffs, notifications, document handling, and reporting—with clear controls and exception paths.</p>
+            <span class="service-tag">AUTOMATION DESIGN · INTEGRATION · CONTROLS</span>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section playbooks" id="playbooks">
+      <div class="shell">
+        <div class="section-heading">
+          <div class="eyebrow">Automation templates</div>
+          <h2>Practical patterns. Tailored to your process.</h2>
+          <p>Use-case playbooks make opportunities tangible. Each is a starting point to configure around your systems, policies, and people—not a one-size-fits-all promise.</p>
+        </div>
+        <div class="playbook-grid">
+          <article class="playbook-card">
+            <div class="playbook-head">
+              <span class="playbook-kind">Customer operations</span>
+              <span class="playbook-code">PLAYBOOK 01</span>
+            </div>
+            <div class="playbook-body">
+              <h3>Enquiry intake &amp; routing</h3>
+              <p>Capture requests consistently and help the right person respond sooner.</p>
+              <div class="flow-steps" aria-label="Example workflow">
+                <div class="flow-step"><span>1</span><div><strong>Request arrives</strong><small>Web form, email, or shared inbox</small></div></div>
+                <div class="flow-step"><span>2</span><div><strong>AI extracts key details</strong><small>Classify intent and check required fields</small></div></div>
+                <div class="flow-step"><span>3</span><div><strong>Team reviews &amp; routes</strong><small>Send to owner with a draft response</small></div></div>
+              </div>
+              <div class="playbook-outcome">Outcome · Fewer missed or delayed enquiries</div>
+            </div>
+          </article>
+          <article class="playbook-card">
+            <div class="playbook-head">
+              <span class="playbook-kind">Knowledge &amp; SOPs</span>
+              <span class="playbook-code">PLAYBOOK 02</span>
+            </div>
+            <div class="playbook-body">
+              <h3>Searchable procedure assistant</h3>
+              <p>Help staff find approved operating guidance without hunting through folders.</p>
+              <div class="flow-steps" aria-label="Example workflow">
+                <div class="flow-step"><span>1</span><div><strong>Curate approved documents</strong><small>Use current, access-controlled procedures</small></div></div>
+                <div class="flow-step"><span>2</span><div><strong>Ask a plain-language question</strong><small>Retrieve relevant, cited guidance</small></div></div>
+                <div class="flow-step"><span>3</span><div><strong>Escalate when unsure</strong><small>Keep people responsible for decisions</small></div></div>
+              </div>
+              <div class="playbook-outcome">Outcome · Faster access to consistent guidance</div>
+            </div>
+          </article>
+          <article class="playbook-card">
+            <div class="playbook-head">
+              <span class="playbook-kind">Operations reporting</span>
+              <span class="playbook-code">PLAYBOOK 03</span>
+            </div>
+            <div class="playbook-body">
+              <h3>Weekly performance brief</h3>
+              <p>Turn routine operating data into a concise, review-ready summary.</p>
+              <div class="flow-steps" aria-label="Example workflow">
+                <div class="flow-step"><span>1</span><div><strong>Collect agreed metrics</strong><small>Pull from existing reports or systems</small></div></div>
+                <div class="flow-step"><span>2</span><div><strong>Flag movement &amp; exceptions</strong><small>Compare trends against clear thresholds</small></div></div>
+                <div class="flow-step"><span>3</span><div><strong>Review before sharing</strong><small>Owner validates context and actions</small></div></div>
+              </div>
+              <div class="playbook-outcome">Outcome · Less manual reporting, clearer focus</div>
+            </div>
+          </article>
+        </div>
+        <p class="playbook-note">Examples are illustrative. We assess data, privacy, controls, and suitability before recommending an implementation.</p>
       </div>
     </section>
 
     <section class="section" id="approach">
       <div class="shell method-grid">
         <div class="method-intro">
-          <div class="eyebrow">Our approach</div>
-          <div class="section-heading"><h2>Clear priorities. Visible progress.</h2></div>
-          <p>No jargon-heavy roadmaps or one-size-fits-all transformation. We work with you to focus on what matters, make a practical plan, and help your people put it into action.</p>
+          <div class="eyebrow">How we work</div>
+          <div class="section-heading"><h2>Consulting that stays accountable to outcomes.</h2></div>
+          <p>We combine operational understanding with disciplined delivery: establish the baseline, test the right changes, and equip your team to sustain what works.</p>
         </div>
         <div class="method-list">
           <article class="method-item">
             <span>01</span>
-            <div><h3>Understand the real work</h3><p>Get close to your goals, team, customers, and the friction slowing you down.</p></div>
+            <div><h3>Diagnose &amp; baseline</h3><p>Understand the business objective, map the real process, and agree how success will be measured.</p></div>
           </article>
           <article class="method-item">
             <span>02</span>
-            <div><h3>Choose the right moves</h3><p>Shape a focused plan with clear priorities, sensible tools, and outcomes you can track.</p></div>
+            <div><h3>Design &amp; prioritise</h3><p>Identify root causes, assess AI and automation fit, and shape a sequenced improvement plan.</p></div>
           </article>
           <article class="method-item">
             <span>03</span>
-            <div><h3>Make change stick</h3><p>Put improvements into practice, support adoption, and learn what to improve next.</p></div>
+            <div><h3>Pilot &amp; validate</h3><p>Test a focused solution with users, controls, and measurable acceptance criteria.</p></div>
+          </article>
+          <article class="method-item">
+            <span>04</span>
+            <div><h3>Adopt &amp; improve</h3><p>Support rollout, clarify ownership, and review outcomes so the change can be sustained.</p></div>
           </article>
         </div>
       </div>
@@ -420,18 +505,18 @@
       <div class="shell">
         <div class="section-heading">
           <div class="eyebrow">Who we help</div>
-          <h2>Built for businesses with ambition—and a lot to do.</h2>
+          <h2>Practical transformation for lean, ambitious teams.</h2>
         </div>
         <div class="audience-panel">
           <article class="audience-card">
             <span>SMALL-SCALE INDUSTRIES</span>
-            <h3>Get more from a lean team.</h3>
-            <p>For growing businesses ready to reduce manual work, make better use of their systems, and create room to scale.</p>
+            <h3>Improve capacity without adding complexity.</h3>
+            <p>For small-scale industries and growing businesses ready to simplify operations, standardise key work, and automate routine tasks.</p>
           </article>
           <article class="audience-card">
             <span>HOSPITALITY BRANDS</span>
-            <h3>Make great experiences easier to deliver.</h3>
-            <p>For cafés, restaurants, hotels, and hospitality groups looking to improve operations and build stronger customer connections.</p>
+            <h3>Make consistent service easier to deliver.</h3>
+            <p>For cafés, restaurants, hotels, and hospitality groups looking to improve handoffs, support frontline teams, and streamline back-office work.</p>
           </article>
         </div>
       </div>
@@ -442,7 +527,7 @@
         <div class="contact-copy">
           <div class="eyebrow">Start a conversation</div>
           <h2>What could work better in your business?</h2>
-          <p>Tell us what you’re working on. We’ll get in touch to understand your priorities and explore a practical next step—no hard sell, just a useful conversation.</p>
+          <p>Tell us where work gets stuck or where AI might help. We’ll discuss the context, desired outcomes, and a sensible next step.</p>
           <div class="contact-promise">Your details are used only to respond to your enquiry.</div>
         </div>
         <form action="/api/enquiry" method="post">
@@ -500,7 +585,7 @@
             </div>
             <div class="field">
               <label for="challenge">What would you like to improve?</label>
-              <textarea id="challenge" name="challenge" maxlength="500" placeholder="A process, marketing challenge, task you’d like to automate…"></textarea>
+              <textarea id="challenge" name="challenge" maxlength="500" placeholder="A process to improve, repetitive task, or AI opportunity…"></textarea>
             </div>
           </div>
           <div class="form-actions">
@@ -515,7 +600,7 @@
   <footer class="footer">
     <div class="shell footer-inner">
       <a class="brand" href="#top"><img src="Emblem_NB.png" alt=""><span>DigitalRoot9</span></a>
-      <span>Smarter operations. Stronger growth.</span>
+      <span>AI &amp; process improvement consulting.</span>
       <span>© <span id="year"></span> DigitalRoot9</span>
     </div>
   </footer>

@@ -84,10 +84,10 @@ async function handleEnquiryForm(request) {
   const emailPayload = {
     personalizations: [{ to: recipients }],
     from: { email: "no-reply@digitalroot9.paulpm1031.workers.dev", name: "DigitalRoot9 Website" },
-    subject: "New DigitalRoot9 Business Growth Enquiry",
+    subject: "New DigitalRoot9 AI & Process Improvement Enquiry",
     content: [
-      { type: "text/plain", value: `NEW DIGITALROOT9 BUSINESS GROWTH ENQUIRY\n\n${plainText}\n\nSource: DigitalRoot9 Website` },
-      { type: "text/html", value: `<div style="font-family:Arial,sans-serif;max-width:650px;color:#17272d;"><h2 style="margin:0 0 16px;">New DigitalRoot9 Business Growth Enquiry</h2><table style="width:100%;border-collapse:collapse;">${htmlRows}</table><p style="margin-top:18px;color:#617078;">Source: DigitalRoot9 Website</p></div>` }
+      { type: "text/plain", value: `NEW DIGITALROOT9 AI & PROCESS IMPROVEMENT ENQUIRY\n\n${plainText}\n\nSource: DigitalRoot9 Website` },
+      { type: "text/html", value: `<div style="font-family:Arial,sans-serif;max-width:650px;color:#17272d;"><h2 style="margin:0 0 16px;">New DigitalRoot9 AI &amp; Process Improvement Enquiry</h2><table style="width:100%;border-collapse:collapse;">${htmlRows}</table><p style="margin-top:18px;color:#617078;">Source: DigitalRoot9 Website</p></div>` }
     ]
   };
 
