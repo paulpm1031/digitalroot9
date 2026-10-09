@@ -37,6 +37,23 @@ async function handleEnquiryForm(request) {
     });
   }
 
+  const fieldLimits = {
+    name: 120,
+    organisation: 160,
+    environment: 80,
+    whatsapp: 30,
+    email: 254,
+    preferredDate: 10,
+    preferredTime: 32,
+    challenge: 500
+  };
+  if (Object.entries(fieldLimits).some(([field, limit]) => enquiry[field].length > limit)) {
+    return new Response("One or more fields are too long. Please shorten your response and try again.", {
+      status: 400,
+      headers: { "Content-Type": "text/plain; charset=UTF-8" }
+    });
+  }
+
   const submittedAt = new Date().toLocaleString("en-MY", {
     timeZone: "Asia/Kuala_Lumpur",
     dateStyle: "full",
@@ -88,5 +105,7 @@ async function handleEnquiryForm(request) {
     });
   }
 
-  return Response.redirect(new URL("/thank-you.html", request.url), 302);
+  const whatsappUrl = new URL("https://wa.me/60123991031");
+  whatsappUrl.searchParams.set("text", `New DigitalRoot9 business enquiry\n\n${plainText}`);
+  return Response.redirect(whatsappUrl, 303);
 }
