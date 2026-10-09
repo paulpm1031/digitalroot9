@@ -12,9 +12,3 @@ run_worker_first = ["/api/*"]
 
 [observability]
 enabled = true
-
-[[send_email]]
-name = "EMAIL"
-remote = true
-allowed_sender_addresses = ["enquiries@digitalroot9.com"]
-allowed_destination_addresses = ["patrick@digitalroot9.com"]
