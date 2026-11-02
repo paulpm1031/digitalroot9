@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 150" width="640" height="150" role="img" aria-label="Diagram showing a process flow from Order to Delivery, with a Wait step highlighted as the leak">
   <defs>
     <linearGradient id="leakGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#C9A45C"/>
-      <stop offset="1" stop-color="#E0C97A"/>
+      <stop offset="0" stop-color="#F97316"/>
+      <stop offset="1" stop-color="#FB923C"/>
     </linearGradient>
   </defs>
   <rect x="0" y="0" width="640" height="150" rx="8" fill="#12203A"/>
@@ -15,11 +15,11 @@
     <polygon points="140,75 158,68 158,75 158,82" fill="#93A9CC"/>
     <line x1="138" y1="75" x2="158" y2="75" stroke="#93A9CC" stroke-width="1.5"/>
     <!-- Step 2: Wait (highlighted) -->
-    <rect x="166" y="50" width="118" height="50" rx="6" fill="url(#leakGrad)" stroke="#C9A45C" stroke-width="2"/>
+    <rect x="166" y="50" width="118" height="50" rx="6" fill="url(#leakGrad)" stroke="#F97316" stroke-width="2"/>
     <text x="225" y="70" text-anchor="middle" fill="#0C1425" font-size="13" font-weight="700">Wait</text>
     <text x="225" y="86" text-anchor="middle" fill="#1A2540" font-size="10" font-weight="600">time and money leak</text>
     <!-- leak marker -->
-    <text x="225" y="34" text-anchor="middle" fill="#C9A45C" font-size="10" font-weight="700">★ the leak</text>
+    <text x="225" y="34" text-anchor="middle" fill="#F97316" font-size="10" font-weight="700">★ the leak</text>
     <!-- arrow -->
     <polygon points="290,75 308,68 308,75 308,82" fill="#93A9CC"/>
     <line x1="288" y1="75" x2="308" y2="75" stroke="#93A9CC" stroke-width="1.5"/>
