@@ -539,6 +539,20 @@
       </div>
     </section>
 
+    <section class="section" id="who-we-help" style="padding-top: 0;">
+      <div class="shell">
+        <div class="section-heading">
+          <div class="eyebrow">Who we help</div>
+          <h2>Who we help.</h2>
+        </div>
+        <div class="problem-copy" style="margin-top: 24px; max-width: 900px;">
+          <p>We work with small and medium businesses across Malaysia and Southeast Asia, including:</p>
+          <p style="margin-top: 12px;">Factories and workshops · Clinics and healthcare operators · Restaurants, cafés and hotels · Distribution and retail · Professional and home services</p>
+          <p style="margin-top: 12px;">If your business is not listed here, start with one process — the first conversation will show whether this fits.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="who-we-work-with">
       <div class="shell">
         <div class="section-heading">
@@ -627,53 +641,24 @@
           <div class="eyebrow">Start a conversation</div>
           <h2>Tell us what is slowing your business down</h2>
           <p>A short description is enough to start. We arrange an initial conversation to understand the problem. If there is a suitable opportunity, we explain the proposed scope, deliverables, timeframe and fee. Nothing starts until you approve it.</p>
-          <p>Prefer email? Write to <a class="mail-link" href="mailto:patrick@digitalroot9.com">patrick@digitalroot9.com</a></p>
-          <p>Prefer WhatsApp? <a class="mail-link" href="https://wa.me/60123991031?text=Hello%20DigitalRoot9%2C%20I%20would%20like%20to%20discuss%20improving%20my%20business%20processes." target="_blank" rel="noopener">Chat on WhatsApp</a></p>
+          <p>Prefer email? Write to <a class="mail-link" href="mailto:patrick@digitalroot9.com?subject=Process%20improvement%20enquiry&body=Hello%20DigitalRoot9%2C%0A%0AName%3A%0ABusiness%3A%0APhone%20%2F%20WhatsApp%3A%0AIndustry%3A%0AProcess%20giving%20me%20the%20most%20headaches%3A">patrick@digitalroot9.com</a></p>
+          <p>Prefer WhatsApp? <a class="mail-link" href="https://wa.me/60123991031?text=Hello%20DigitalRoot9%2C%20I%20would%20like%20to%20discuss%20improving%20my%20business%20processes.%0A%0AName%3A%0ABusiness%3A%0APhone%20%2F%20WhatsApp%3A%0AIndustry%3A%0AProcess%20giving%20me%20the%20most%20headaches%3A" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
           <div class="contact-promise">Your details are used only to respond to your enquiry.</div>
         </div>
-        <form action="/api/enquiry" method="post">
-          <div class="form-heading">Tell us about your business</div>
-          <div class="honeypot" aria-hidden="true">
-            <label for="_gotcha">Leave this field empty</label>
-            <input id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
-          </div>
-          <div class="field">
-            <label for="name">Your name <span aria-hidden="true">*</span></label>
-            <input id="name" name="name" required maxlength="120" autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="organisation">Business name <span aria-hidden="true">*</span></label>
-            <input id="organisation" name="organisation" required maxlength="160" autocomplete="organization">
-          </div>
-          <div class="field">
-            <label for="whatsapp">Phone / WhatsApp <span aria-hidden="true">*</span></label>
-            <input id="whatsapp" name="whatsapp" type="tel" required maxlength="30" autocomplete="tel">
-          </div>
-          <div class="field">
-            <label for="email">Business email</label>
-            <input id="email" name="email" type="email" maxlength="254" autocomplete="email">
-          </div>
-          <div class="field">
-            <label for="environment">Industry <span aria-hidden="true">*</span></label>
-            <select id="environment" name="environment" required>
-              <option value="" selected disabled>Select your industry</option>
-              <option>Factories and workshops</option>
-              <option>Clinics and healthcare operators</option>
-              <option>Restaurants, cafés and hotels</option>
-              <option>Distribution and retail</option>
-              <option>Professional and home services</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="challenge">Which process gives you the most headaches? <span aria-hidden="true">*</span></label>
-            <textarea id="challenge" name="challenge" required maxlength="500" placeholder="Describe the process..."></textarea>
-          </div>
-          <div class="form-actions">
-            <button class="button button-primary" type="submit">Continue to WhatsApp <span class="arrow" aria-hidden="true">↗</span></button>
-          </div>
-          <p class="form-note" style="margin-top: 12px;">This opens WhatsApp with your details filled in. Nothing is sent until you review it and tap Send. Prefer email? Write to patrick@digitalroot9.com.</p>
-        </form>
+        <div style="padding: 27px; border: 1px solid var(--line); border-radius: 10px; background: rgba(14, 17, 22, .6);">
+          <div class="form-heading">What to send first</div>
+          <p style="color: var(--muted);">A short message is enough to start. Send these details by email or WhatsApp:</p>
+          <ul style="margin-top: 16px; color: var(--text); line-height: 1.8; padding-left: 20px;">
+            <li><strong>Your name</strong></li>
+            <li><strong>Business name</strong></li>
+            <li><strong>Phone / WhatsApp</strong></li>
+            <li><strong>Industry</strong></li>
+            <li><strong>Which process gives you the most headaches?</strong> — a short description is enough</li>
+          </ul>
+          <p style="margin-top: 20px; color: var(--muted);">We arrange an initial conversation to understand the problem. If there is a suitable opportunity, we explain the proposed scope, deliverables, timeframe and fee. Nothing starts until you approve it.</p>
+          <p style="margin-top: 20px;"><a class="button button-primary" href="https://wa.me/60123991031?text=Hello%20DigitalRoot9%2C%20I%20would%20like%20to%20discuss%20improving%20my%20business%20processes.%0A%0AName%3A%0ABusiness%3A%0APhone%20%2F%20WhatsApp%3A%0AIndustry%3A%0AProcess%20giving%20me%20the%20most%20headaches%3A" target="_blank" rel="noopener">Send on WhatsApp <span class="arrow" aria-hidden="true">↗</span></a></p>
+          <p class="form-note" style="margin-top: 12px;">Nothing is sent until you review it and tap Send.</p>
+        </div>
       </div>
     </section>
   </main>
